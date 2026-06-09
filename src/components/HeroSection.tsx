@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Phone, ShieldCheck, Sparkles, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";

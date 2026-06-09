@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Award, BadgeCheck, Clock, DollarSign, ShieldCheck, Users } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";

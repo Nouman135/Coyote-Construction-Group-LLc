@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { services } from "@/lib/services-data";
 import { ArrowRight } from "lucide-react";
@@ -54,7 +56,7 @@ const ServicesSection = () => {
                   className="flex-none basis-full sm:basis-[calc(50%-14px)] lg:basis-[calc(33.333%-19px)] max-w-[420px] h-full flex"
                 >
                   <div className="group relative rounded-lg overflow-hidden w-full h-full flex flex-col card-hover-lift bg-card border border-border shadow-[0_16px_40px_-28px_hsl(var(--accent)/0.8)]">
-                    <Link to={`/services/${service.slug}`} className="relative aspect-[4/3] w-full block">
+                  <Link href={`/services/${service.slug}`} className="relative aspect-[4/3] w-full block">
                       <img
                         src={service.image}
                         alt={service.title}
@@ -80,7 +82,7 @@ const ServicesSection = () => {
                     <div className="mt-auto p-5 bg-card border-t border-border flex items-center justify-between">
                       <p className="text-muted-foreground text-sm line-clamp-2">{service.subtitle}</p>
                       <Link
-                        to={`/services/${service.slug}`}
+                        href={`/services/${service.slug}`}
                         className="inline-flex items-center gap-2 text-secondary font-semibold text-sm hover:gap-3 transition-all"
                       >
                         Learn More <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

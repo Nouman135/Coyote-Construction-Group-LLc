@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { ArrowRight, Clock, ExternalLink, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useQuoteForm } from "@/components/QuoteFormContext";
@@ -74,7 +76,7 @@ const Footer = () => {
               ].map((link) => (
                 <li key={link.label}>
                   <Link
-                    to={link.to}
+                    href={link.to}
                     className="footer-link-underline text-accent-foreground/80 hover:text-primary text-sm transition-colors"
                   >
                     {link.label}
@@ -97,7 +99,7 @@ const Footer = () => {
                 { label: "Roofing Services", to: "/services/roofing-services" },
               ].map((link) => (
                 <li key={link.label}>
-                  <Link to={link.to} className="footer-link-underline hover:text-primary transition-colors">
+                  <Link href={link.to} className="footer-link-underline hover:text-primary transition-colors">
                     {link.label}
                   </Link>
                 </li>

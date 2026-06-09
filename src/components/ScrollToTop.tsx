@@ -1,9 +1,11 @@
+"use client";
+
 import { useEffect, useMemo, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
 import { ArrowUp } from "lucide-react";
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+const pathname = usePathname();
   const [showButton, setShowButton] = useState(false);
   const [progress, setProgress] = useState(0);
 

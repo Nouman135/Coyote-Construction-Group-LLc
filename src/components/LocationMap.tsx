@@ -1,7 +1,9 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { locations } from "@/lib/locations-data";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/site-config";
@@ -181,7 +183,7 @@ const LocationMap = () => {
                       <p className="text-muted-foreground text-xs leading-relaxed mb-2">
                         Construction, additions, remodeling, and exterior services available in {city.name}.
                       </p>
-                      <Link to={`/locations/${city.slug}`}>
+                      <Link href={`/locations/${city.slug}`}>
                         <Button size="sm" variant="outline" className="w-full text-xs">
                           Learn More
                         </Button>

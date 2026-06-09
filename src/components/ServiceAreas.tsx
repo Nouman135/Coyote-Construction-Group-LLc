@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin } from "lucide-react";
 import { useQuoteForm } from "@/components/QuoteFormContext";
@@ -59,7 +61,7 @@ const ServiceAreas = () => {
           {previewLocations.map((location) => (
             <Link
               key={location.slug}
-              to={`/locations/${location.slug}`}
+              href={`/locations/${location.slug}`}
               className="flex-none basis-full sm:basis-[calc(50%-12px)] lg:basis-[calc(33.333%-16px)] max-w-[420px] h-full rounded-lg border border-border bg-card p-6 shadow-[0_18px_40px_-30px_hsl(var(--accent)/0.7)] card-hover-lift flex items-center gap-3"
             >
               <MapPin className="h-5 w-5 text-secondary shrink-0" />
@@ -80,7 +82,7 @@ const ServiceAreas = () => {
           <Button size="lg" onClick={openQuoteForm} className="gap-2 px-8 rounded-xl">
             Request Free Estimate
           </Button>
-          <Link to="/locations">
+          <Link href="/locations">
             <Button variant="outline" size="lg" className="gap-2 px-8 rounded-xl">
               View All Locations <ArrowRight className="h-5 w-5" />
             </Button>
