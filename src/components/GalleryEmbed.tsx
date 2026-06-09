@@ -34,12 +34,12 @@ const GalleryEmbed = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col items-center justify-center text-center py-20 glass-card rounded-2xl"
+          className="flex flex-col items-center justify-center text-center py-20 glass-card rounded-lg"
         >
           <motion.div
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="inline-flex items-center justify-center h-20 w-20 rounded-2xl bg-primary/15 text-primary mb-6"
+            className="inline-flex items-center justify-center h-20 w-20 rounded-lg bg-primary/15 text-secondary mb-6"
           >
             <Camera className="h-10 w-10" />
           </motion.div>
@@ -47,10 +47,10 @@ const GalleryEmbed = () => {
             Coming Soon
           </h3>
           <p className="text-accent-foreground/80 max-w-sm text-sm mb-6">
-            Project photos are being prepared. Check back soon to see our completed solar installations!
+            Project photos are being prepared. Check back soon to see completed construction, remodeling, and exterior projects.
           </p>
-          <Button variant="default" onClick={openQuoteForm} className="gap-2 rounded-xl">
-            Get Free Consultation <ArrowRight className="h-4 w-4" />
+          <Button variant="default" onClick={openQuoteForm} className="gap-2 rounded-lg">
+            Request Free Estimate <ArrowRight className="h-4 w-4" />
           </Button>
         </motion.div>
       </div>

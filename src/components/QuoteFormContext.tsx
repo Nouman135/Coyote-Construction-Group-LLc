@@ -38,7 +38,7 @@ export const QuoteFormProvider: React.FC<{ children: React.ReactNode }> = ({ chi
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="relative w-full max-w-[660px] rounded-2xl shadow-2xl bg-card/95 border border-white/20 backdrop-blur-md p-3 md:p-4 mt-8 md:mt-0 max-h-[90vh] overflow-y-auto scrollbar-hide"
+              className="relative w-full max-w-[660px] rounded-lg shadow-2xl bg-card/95 border border-white/20 backdrop-blur-md p-3 md:p-4 mt-8 md:mt-0 max-h-[90vh] overflow-y-auto scrollbar-hide"
             >
               <button
                 onClick={closeQuoteForm}
@@ -49,10 +49,10 @@ export const QuoteFormProvider: React.FC<{ children: React.ReactNode }> = ({ chi
               </button>
               <div className="px-1 pb-1">
                 <h3 className="font-heading text-xl md:text-2xl text-foreground font-bold mb-2">
-                  Get Your Free Estimate
+                  Request a Free Estimate
                 </h3>
                 <p className="text-muted-foreground text-sm mb-3">
-                  Call {siteConfig.primaryPhoneDisplay} for immediate help.
+                  Jean Oliveira personally handles estimates. Call {siteConfig.primaryPhoneDisplay} for immediate help.
                 </p>
                 <EmbeddedQuoteForm height={980} enableScroll />
               </div>

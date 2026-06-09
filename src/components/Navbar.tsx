@@ -62,7 +62,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
             <img src={siteConfig.assets.logo} alt={siteConfig.brand} className="h-10 w-auto" />
           </Link>
-          <button onClick={() => setOpen(false)} className="p-1 text-foreground/90 hover:text-primary">
+          <button onClick={() => setOpen(false)} className="p-1 text-foreground/90 hover:text-secondary">
             <X className="h-5 w-5" />
           </button>
         </div>
@@ -71,7 +71,7 @@ const Navbar = () => {
             link.dropdown === "services" ? (
               <li key={link.href}>
                 <div className="flex items-center justify-between py-3">
-                <Link to={link.href} onClick={() => setOpen(false)} className="font-heading text-base tracking-tight text-foreground/80 hover:text-primary transition-colors">
+                <Link to={link.href} onClick={() => setOpen(false)} className="font-heading text-base tracking-tight text-foreground/80 hover:text-secondary transition-colors">
                     {link.label}
                   </Link>
                   <button onClick={() => setMobileServicesOpen(!mobileServicesOpen)} className="p-1 text-foreground/80">
@@ -82,7 +82,7 @@ const Navbar = () => {
                   <ul className="pl-4 pb-2 space-y-1">
                     {services.map((s) => (
                       <li key={s.slug}>
-                        <Link to={`/services/${s.slug}`} onClick={() => setOpen(false)} className="block py-1.5 text-sm text-foreground/90 hover:text-primary transition-colors">
+                        <Link to={`/services/${s.slug}`} onClick={() => setOpen(false)} className="block py-1.5 text-sm text-foreground/90 hover:text-secondary transition-colors">
                           {s.title}
                         </Link>
                       </li>
@@ -93,7 +93,7 @@ const Navbar = () => {
             ) : link.dropdown === "locations" ? (
               <li key={link.href}>
                 <div className="flex items-center justify-between py-3">
-                <Link to={link.href} onClick={() => setOpen(false)} className="font-heading text-base tracking-tight text-foreground/80 hover:text-primary transition-colors">
+                <Link to={link.href} onClick={() => setOpen(false)} className="font-heading text-base tracking-tight text-foreground/80 hover:text-secondary transition-colors">
                     {link.label}
                   </Link>
                   <button onClick={() => setMobileLocationsOpen(!mobileLocationsOpen)} className="p-1 text-foreground/80">
@@ -104,7 +104,7 @@ const Navbar = () => {
                   <ul className="pl-4 pb-2 space-y-1 scrollbar-hide max-h-60 overflow-y-auto">
                     {locations.map((loc) => (
                       <li key={loc.slug}>
-                        <Link to={`/locations/${loc.slug}`} onClick={() => setOpen(false)} className="block py-1.5 text-sm text-foreground/90 hover:text-primary transition-colors">
+                        <Link to={`/locations/${loc.slug}`} onClick={() => setOpen(false)} className="block py-1.5 text-sm text-foreground/90 hover:text-secondary transition-colors">
                           {loc.name}, {loc.state}
                         </Link>
                       </li>
@@ -114,7 +114,7 @@ const Navbar = () => {
               </li>
             ) : (
               <li key={link.href}>
-                <Link to={link.href} onClick={() => setOpen(false)} className="font-heading text-base tracking-tight text-foreground/80 hover:text-primary transition-colors block py-3">
+                <Link to={link.href} onClick={() => setOpen(false)} className="font-heading text-base tracking-tight text-foreground/80 hover:text-secondary transition-colors block py-3">
                   {link.label}
                 </Link>
               </li>
@@ -148,20 +148,20 @@ const Navbar = () => {
                 >
                   <Link
                     to={link.href}
-                    className="nav-link-underline font-heading text-base tracking-tight text-foreground/85 hover:text-primary transition-colors inline-flex items-center gap-1"
+                    className="nav-link-underline font-heading text-base tracking-tight text-foreground/85 hover:text-secondary transition-colors inline-flex items-center gap-1"
                   >
                     {link.label}
                     <ChevronDown className={`h-3.5 w-3.5 transition-transform ${activeDropdown === link.dropdown ? "rotate-180" : ""}`} />
                   </Link>
                   {activeDropdown === link.dropdown && link.dropdown === "services" && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-[130]">
-                      <div className="w-[720px] bg-white border border-border rounded-2xl shadow-2xl p-4">
+                      <div className="w-[720px] bg-white border border-border rounded-lg shadow-2xl p-4">
                         <div className="grid grid-cols-3 gap-x-5 gap-y-1">
                         {services.map((s) => (
                           <Link
                             key={s.slug}
                             to={`/services/${s.slug}`}
-                              className="block rounded-lg px-3 py-2 text-[14px] leading-tight text-popover-foreground hover:bg-primary/10 hover:text-primary transition-colors"
+                              className="block rounded-lg px-3 py-2 text-[14px] leading-tight text-popover-foreground hover:bg-primary/20 hover:text-secondary transition-colors"
                             onClick={() => setActiveDropdown(null)}
                           >
                               <span className="font-semibold">{s.title}</span>
@@ -173,13 +173,13 @@ const Navbar = () => {
                   )}
                   {activeDropdown === link.dropdown && link.dropdown === "locations" && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-[130]">
-                      <div className="bg-white border border-border rounded-2xl shadow-2xl p-4 w-[720px]">
+                      <div className="bg-white border border-border rounded-lg shadow-2xl p-4 w-[720px]">
                         <div className="grid grid-cols-3 gap-x-5 gap-y-1">
                         {locations.map((loc) => (
                           <Link
                             key={loc.slug}
                             to={`/locations/${loc.slug}`}
-                              className="block rounded-lg px-3 py-2 text-[14px] leading-tight text-popover-foreground hover:bg-primary/10 hover:text-primary transition-colors"
+                              className="block rounded-lg px-3 py-2 text-[14px] leading-tight text-popover-foreground hover:bg-primary/20 hover:text-secondary transition-colors"
                             onClick={() => setActiveDropdown(null)}
                           >
                               <span className="font-semibold">{loc.name}</span>
@@ -194,7 +194,7 @@ const Navbar = () => {
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="nav-link-underline font-heading text-base tracking-tight text-foreground/85 hover:text-primary transition-colors"
+                    className="nav-link-underline font-heading text-base tracking-tight text-foreground/85 hover:text-secondary transition-colors"
                   >
                     {link.label}
                   </Link>

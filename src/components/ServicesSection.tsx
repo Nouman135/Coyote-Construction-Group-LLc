@@ -19,9 +19,9 @@ const ServicesSection = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block text-primary text-sm font-bold uppercase tracking-widest mb-3"
+            className="inline-block text-secondary text-sm font-bold uppercase tracking-widest mb-3"
           >
-            What We Offer
+            Services
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -29,7 +29,7 @@ const ServicesSection = () => {
             viewport={{ once: true }}
             className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-4 tracking-tight font-bold"
           >
-            Premium Construction Services
+            Construction, Additions, and Remodeling
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -38,7 +38,7 @@ const ServicesSection = () => {
             transition={{ delay: 0.1 }}
             className="text-muted-foreground max-w-2xl mx-auto text-lg"
           >
-            From roof replacements to interior remodels, every service is tailored for long-term value and professional finish quality.
+            New construction, additions, remodeling, general contracting, roofing, carpentry, exterior work, and trade coordination across Greater Boston.
           </motion.p>
         </div>
 
@@ -53,7 +53,7 @@ const ServicesSection = () => {
                   transition={{ delay: i * 0.1, duration: 0.5 }}
                   className="flex-none basis-full sm:basis-[calc(50%-14px)] lg:basis-[calc(33.333%-19px)] max-w-[420px] h-full flex"
                 >
-                  <div className="group relative rounded-2xl overflow-hidden w-full h-full flex flex-col card-hover-lift bg-card border border-border shadow-[0_16px_40px_-28px_hsl(var(--accent)/0.8)]">
+                  <div className="group relative rounded-lg overflow-hidden w-full h-full flex flex-col card-hover-lift bg-card border border-border shadow-[0_16px_40px_-28px_hsl(var(--accent)/0.8)]">
                     <Link to={`/services/${service.slug}`} className="relative aspect-[4/3] w-full block">
                       <img
                         src={service.image}
@@ -64,7 +64,7 @@ const ServicesSection = () => {
                       <div className="absolute inset-0 bg-[linear-gradient(180deg,hsl(0_0%_0%/0.06)_0%,hsl(0_0%_0%/0.78)_100%)]" />
 
                       <div className="absolute top-4 right-4 z-10">
-                        <span className="inline-block bg-secondary text-secondary-foreground text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
+                        <span className="inline-block bg-primary text-primary-foreground text-xs font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider">
                           {service.price}
                         </span>
                       </div>
@@ -81,7 +81,7 @@ const ServicesSection = () => {
                       <p className="text-muted-foreground text-sm line-clamp-2">{service.subtitle}</p>
                       <Link
                         to={`/services/${service.slug}`}
-                        className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all"
+                        className="inline-flex items-center gap-2 text-secondary font-semibold text-sm hover:gap-3 transition-all"
                       >
                         Learn More <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </Link>

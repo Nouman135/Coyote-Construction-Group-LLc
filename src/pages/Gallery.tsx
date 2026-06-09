@@ -41,10 +41,10 @@ const Gallery = () => {
         <section className="relative overflow-hidden">
           <img
             src={siteConfig.assets.heroImage}
-            alt="Skystone Construction gallery hero"
+            alt="Trust Contractors Inc gallery hero"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(220_25%_8%/.85)_0%,hsl(198_90%_45%/.35)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(222_62%_12%/.88)_0%,hsl(58_94%_51%/.22)_100%)]" />
           <div className="absolute inset-0 gradient-mesh opacity-25" />
           <div className="relative z-10 flex items-center justify-center h-[38vh] md:h-[46vh] text-center px-4">
             <motion.div
@@ -57,7 +57,7 @@ const Gallery = () => {
                 Our Gallery
               </h1>
               <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
-                Project showcase and completed work
+                Project showcase, renovations, finish work, and exterior upgrades
               </p>
             </motion.div>
           </div>
@@ -73,7 +73,7 @@ const Gallery = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
-                  className="group relative overflow-hidden rounded-2xl bg-muted shadow-lg aspect-square"
+                  className="group relative overflow-hidden rounded-lg bg-muted shadow-lg aspect-square"
                 >
                   <img
                     src={image.src}
@@ -88,7 +88,7 @@ const Gallery = () => {
 
             <div className="flex justify-center mt-16">
               <Button size="lg" onClick={openQuoteForm} className="gap-2">
-                Get Free Estimate <ArrowRight className="h-5 w-5" />
+                Request Free Estimate <ArrowRight className="h-5 w-5" />
               </Button>
             </div>
           </div>

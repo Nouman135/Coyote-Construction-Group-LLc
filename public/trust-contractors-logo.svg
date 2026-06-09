@@ -1,0 +1,10 @@
+<svg width="640" height="280" viewBox="0 0 640 280" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Trust Contractors Inc logo</title>
+  <desc id="desc">Blue roof mark above yellow Trust text and blue Contractors Inc text.</desc>
+  <rect width="640" height="280" rx="22" fill="white"/>
+  <path d="M116 113L320 33L524 113" stroke="#1D3A7C" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M164 111V78H219V89" stroke="#1D3A7C" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M169 122H471L442 154H198L169 122Z" fill="#1D3A7C"/>
+  <text x="320" y="197" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="74" font-weight="900" letter-spacing="4" fill="#F8F10E">TRUST</text>
+  <text x="320" y="237" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="34" font-weight="800" letter-spacing="5" fill="#1D3A7C">CONTRACTORS INC</text>
+</svg>

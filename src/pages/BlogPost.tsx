@@ -1,10 +1,9 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarDays, User } from "lucide-react";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { blogPosts } from "@/lib/blog-data";
-import { CalendarDays, User, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useQuoteForm } from "@/components/QuoteFormContext";
 
@@ -21,8 +20,8 @@ const BlogPost = () => {
         <main className="section-padding">
           <div className="container-max text-center py-20">
             <h1 className="font-heading text-4xl text-foreground mb-4 tracking-wide font-bold">Post Not Found</h1>
-            <Link to="/blog" className="text-primary font-semibold hover:underline">
-              ← Back to Blog
+            <Link to="/blog" className="text-secondary font-semibold hover:underline">
+              Back to Blog
             </Link>
           </div>
         </main>
@@ -38,7 +37,7 @@ const BlogPost = () => {
       <main>
         <section className="relative py-16 md:py-24 overflow-hidden">
           <img src={post.heroImage} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(220_25%_8%/.84)_0%,hsl(198_90%_45%/.34)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(222_62%_12%/.88)_0%,hsl(58_94%_51%/.22)_100%)]" />
           <div className="container-max px-4 text-center">
             <div className="max-w-3xl mx-auto relative z-10">
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-accent-foreground mb-4 tracking-wide font-bold">
@@ -60,13 +59,13 @@ const BlogPost = () => {
           <div className="container-max max-w-3xl">
             <Link
               to="/blog"
-              className="inline-flex items-center gap-1 text-primary font-semibold text-sm mb-8 hover:underline"
+              className="inline-flex items-center gap-1 text-secondary font-semibold text-sm mb-8 hover:underline"
             >
               <ArrowLeft className="h-4 w-4" /> Back to Blog
             </Link>
             <article>
-              {post.content.map((paragraph, index) => (
-                <p key={index} className="text-foreground/80 leading-relaxed text-base md:text-lg mb-6">
+              {post.content.map((paragraph) => (
+                <p key={paragraph} className="text-foreground/80 leading-relaxed text-base md:text-lg mb-6">
                   {paragraph}
                 </p>
               ))}
@@ -74,7 +73,7 @@ const BlogPost = () => {
 
             <div className="flex justify-center mt-10">
               <Button size="lg" onClick={openQuoteForm} className="gap-2">
-                Get Free Estimate <ArrowRight className="h-5 w-5" />
+                Request Free Estimate <ArrowRight className="h-5 w-5" />
               </Button>
             </div>
           </div>

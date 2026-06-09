@@ -19,7 +19,7 @@ const Blog = () => {
       <main>
         <section className="relative overflow-hidden">
           <img src={siteConfig.assets.heroImage} alt="Construction tips and blog" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(220_25%_8%/.85)_0%,hsl(198_90%_45%/.35)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(222_62%_12%/.88)_0%,hsl(58_94%_51%/.22)_100%)]" />
           <div className="relative z-10 flex items-center justify-center h-[40vh] md:h-[50vh] text-center px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -30,7 +30,7 @@ const Blog = () => {
                 Blog
               </h1>
               <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
-                Practical roofing and remodeling insights from Skystone Construction LLC.
+                Practical construction and remodeling insights from Trust Contractors Inc.
               </p>
             </motion.div>
           </div>
@@ -50,7 +50,7 @@ const Blog = () => {
                   >
                     <Link
                       to={`/blog/${post.slug}`}
-                      className="group bg-card rounded-2xl overflow-hidden border border-border card-hover-lift flex flex-col w-full h-full shadow-[0_20px_50px_-34px_hsl(var(--accent)/0.8)]"
+                      className="group bg-card rounded-lg overflow-hidden border border-border card-hover-lift flex flex-col w-full h-full shadow-[0_20px_50px_-34px_hsl(var(--accent)/0.8)]"
                     >
                       <div className="aspect-[16/10] overflow-hidden">
                         <img
@@ -65,13 +65,13 @@ const Blog = () => {
                           <CalendarDays className="h-3.5 w-3.5" />
                           {post.date}
                         </div>
-                        <h2 className="font-heading text-xl text-foreground mb-2 group-hover:text-primary transition-colors tracking-wide line-clamp-2 font-bold">
+                        <h2 className="font-heading text-xl text-foreground mb-2 group-hover:text-secondary transition-colors tracking-wide line-clamp-2 font-bold">
                           {post.title}
                         </h2>
                         <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
                           {post.excerpt}
                         </p>
-                        <span className="inline-flex items-center gap-1 text-primary font-semibold text-sm mt-auto">
+                        <span className="inline-flex items-center gap-1 text-secondary font-semibold text-sm mt-auto">
                           Read More <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </span>
                       </div>
@@ -82,7 +82,7 @@ const Blog = () => {
 
             <div className="flex justify-center mt-12">
               <Button size="lg" onClick={openQuoteForm} className="gap-2">
-                Get Free Estimate <ArrowRight className="h-5 w-5" />
+                Request Free Estimate <ArrowRight className="h-5 w-5" />
               </Button>
             </div>
           </div>

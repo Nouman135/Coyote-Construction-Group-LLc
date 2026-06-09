@@ -18,8 +18,8 @@ const Services = () => {
       <Navbar />
       <main>
         <section className="relative h-[42vh] md:h-[52vh] overflow-hidden">
-          <img src={siteConfig.assets.heroImage} alt="Skystone Construction services" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(220_24%_8%/.85)_0%,hsl(198_90%_45%/.3)_100%)]" />
+          <img src={siteConfig.assets.heroImage} alt="Trust Contractors Inc services" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(222_62%_12%/.88)_0%,hsl(58_94%_51%/.22)_100%)]" />
           <div className="relative z-10 flex items-center justify-center h-full text-center px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -30,7 +30,7 @@ const Services = () => {
                 Services
               </h1>
               <p className="text-white/80 max-w-2xl mx-auto">
-                Premium roofing and remodeling solutions for residential and commercial properties across the Oklahoma City metro.
+                New construction, additions, remodeling, roofing, carpentry, siding, painting, windows, doors, and general contracting across Greater Boston.
               </p>
             </motion.div>
           </div>
@@ -50,7 +50,7 @@ const Services = () => {
                   >
                     <Link
                       to={`/services/${s.slug}`}
-                      className="group relative rounded-2xl overflow-hidden block card-hover-lift w-full h-full flex flex-col border border-border bg-card shadow-[0_20px_50px_-34px_hsl(var(--accent)/0.8)]"
+                      className="group relative rounded-lg overflow-hidden block card-hover-lift w-full h-full flex flex-col border border-border bg-card shadow-[0_20px_50px_-34px_hsl(var(--accent)/0.8)]"
                     >
                       <div className="relative aspect-[3/2] w-full">
                         <img
@@ -72,7 +72,7 @@ const Services = () => {
                       </div>
                       <div className="p-5 flex items-center justify-between">
                         <p className="text-muted-foreground text-sm line-clamp-2">{s.subtitle}</p>
-                        <span className="inline-flex items-center gap-1 text-primary font-semibold text-sm">
+                        <span className="inline-flex items-center gap-1 text-secondary font-semibold text-sm">
                           Learn More <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </span>
                       </div>
@@ -83,11 +83,11 @@ const Services = () => {
 
             <div className="flex justify-center mt-12">
               <Button size="lg" onClick={openQuoteForm} className="gap-2">
-                Get Free Estimate <ArrowRight className="h-5 w-5" />
+                Request Free Estimate <ArrowRight className="h-5 w-5" />
               </Button>
             </div>
             <p className="text-center text-sm text-muted-foreground mt-4">
-              Prefer to call? <a href={`tel:${siteConfig.primaryPhoneRaw}`} className="text-primary font-semibold hover:underline">{siteConfig.primaryPhoneDisplay}</a>
+              Prefer to call? <a href={`tel:${siteConfig.primaryPhoneRaw}`} className="text-secondary font-semibold hover:underline">{siteConfig.primaryPhoneDisplay}</a>
             </p>
           </div>
         </section>

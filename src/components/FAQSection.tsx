@@ -5,44 +5,45 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
+import { siteConfig } from "@/lib/site-config";
 
 const faqs = [
   {
     q: "Do you offer free estimates?",
-    a: "Yes. Skystone Construction LLC provides free estimates for roofing, remodeling, decks, pergolas, flooring, siding, and painting services.",
+    a: "Yes. Trust Contractors Inc offers free in-person estimates. Jean Oliveira personally handles estimates, and estimates are typically completed within 3 days.",
   },
   {
-    q: "Do you work on commercial and residential properties?",
-    a: "Yes. We support both residential and commercial projects across our Oklahoma City service area.",
+    q: "Which projects do you prioritize?",
+    a: "Our priority services are new construction, home additions, and remodeling. We also handle general contracting, roofing, HVAC, plumbing, electrical coordination, carpentry, framing, decks, porches, siding, painting, windows, and doors.",
   },
   {
-    q: "Which locations do you serve?",
-    a: "We serve Oklahoma City and nearby cities within a 30-mile radius, including Edmond, Norman, Yukon, Bethany, and surrounding communities.",
+    q: "Which areas do you serve?",
+    a: `We serve Greater Boston communities within about ${siteConfig.serviceRadiusMiles} miles, including Bedford, Lexington, Winchester, Arlington, Belmont, Watertown, Waltham, Woburn, Reading, Wakefield, Lynnfield, North Reading, Andover, North Andover, and Wilmington.`,
   },
   {
-    q: "Can I request roof inspection only?",
-    a: "Absolutely. We provide roof inspections as a standalone service and can recommend repair or replacement if needed.",
+    q: "What is your minimum job size?",
+    a: `The minimum job size is ${siteConfig.minimumJobSize}. Larger additions and remodeling projects are often a strong fit around ${siteConfig.idealJobSize}.`,
   },
   {
-    q: "Do you have discounts or referral incentives?",
-    a: "Yes. We currently offer a 15% customer discount and a $100 referral reward.",
+    q: "How quickly do you respond to new inquiries?",
+    a: "New inquiries are usually handled immediately, and leads can be sent directly for manual follow-up.",
   },
   {
-    q: "What are your business hours?",
-    a: "Our office hours are Monday to Friday from 8:00 AM to 5:00 PM and Saturday from 8:00 AM to 1:00 PM.",
+    q: "Do you offer financing?",
+    a: "No. Trust Contractors Inc does not currently offer financing.",
   },
 ];
 
 const FAQSection = () => {
   return (
-    <section className="section-padding bg-[linear-gradient(180deg,hsl(var(--background))_0%,hsl(var(--primary)/0.04)_100%)]">
+    <section className="section-padding bg-[linear-gradient(180deg,hsl(var(--background))_0%,hsl(var(--primary)/0.05)_100%)]">
       <div className="container-max max-w-3xl">
         <div className="text-center mb-16">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block text-primary text-sm font-bold uppercase tracking-widest mb-3"
+            className="inline-block text-secondary text-sm font-bold uppercase tracking-widest mb-3"
           >
             FAQ
           </motion.span>
@@ -59,7 +60,7 @@ const FAQSection = () => {
         <Accordion type="single" collapsible className="space-y-3">
           {faqs.map((faq, i) => (
             <motion.div
-              key={i}
+              key={faq.q}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -67,7 +68,7 @@ const FAQSection = () => {
             >
               <AccordionItem
                 value={`faq-${i}`}
-                className="bg-card rounded-xl border border-border px-6 data-[state=open]:shadow-md data-[state=open]:border-primary/20 transition-all"
+                className="bg-card rounded-lg border border-border px-6 data-[state=open]:shadow-md data-[state=open]:border-primary/40 transition-all"
               >
                 <AccordionTrigger className="font-heading text-lg tracking-tight text-foreground hover:no-underline py-5 text-left font-semibold">
                   {faq.q}

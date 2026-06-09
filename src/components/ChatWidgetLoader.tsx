@@ -3,6 +3,8 @@ import { siteConfig } from "@/lib/site-config";
 
 const ChatWidgetLoader = () => {
   useEffect(() => {
+    if (!siteConfig.widgets.chatWidgetId) return;
+
     const existing = document.querySelector(`script[src="${siteConfig.widgets.chatLoaderSrc}"]`);
     if (existing) return;
 

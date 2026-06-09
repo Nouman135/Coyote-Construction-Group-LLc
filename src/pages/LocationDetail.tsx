@@ -4,7 +4,7 @@ import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { locations } from "@/lib/locations-data";
-import { MapPin, CheckCircle, ArrowLeft, Phone, Navigation, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle, MapPin, Navigation, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useQuoteForm } from "@/components/QuoteFormContext";
 import { siteConfig } from "@/lib/site-config";
@@ -23,8 +23,8 @@ const LocationDetail = () => {
         <main className="section-padding">
           <div className="container-max text-center py-20">
             <h1 className="font-heading text-4xl text-foreground mb-4 tracking-wide font-bold">Location Not Found</h1>
-            <Link to="/locations" className="text-primary font-semibold hover:underline">
-              ← Back to Locations
+            <Link to="/locations" className="text-secondary font-semibold hover:underline">
+              Back to Locations
             </Link>
           </div>
         </main>
@@ -38,7 +38,7 @@ const LocationDetail = () => {
       <TopBar />
       <Navbar />
       <main>
-        <section className="bg-[linear-gradient(140deg,hsl(var(--accent))_0%,hsl(224_28%_13%)_100%)] py-16 md:py-24">
+        <section className="bg-[linear-gradient(140deg,hsl(var(--accent))_0%,hsl(var(--accent-dark))_100%)] py-16 md:py-24">
           <div className="container-max px-4 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -48,7 +48,7 @@ const LocationDetail = () => {
             >
               <div className="flex items-center justify-center gap-2 text-accent-foreground/90 text-sm mb-3">
                 <MapPin className="h-4 w-4" />
-                <span>{location.state} · {location.region}</span>
+                <span>{location.state} - {location.region}</span>
               </div>
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-accent-foreground mb-4 tracking-wide font-bold">
                 {location.name}
@@ -64,7 +64,7 @@ const LocationDetail = () => {
           <div className="container-max max-w-4xl">
             <Link
               to="/locations"
-              className="inline-flex items-center gap-1 text-primary font-semibold text-sm mb-8 hover:underline"
+              className="inline-flex items-center gap-1 text-secondary font-semibold text-sm mb-8 hover:underline"
             >
               <ArrowLeft className="h-4 w-4" /> Back to All Locations
             </Link>
@@ -72,21 +72,21 @@ const LocationDetail = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {location.highlights.map((h, i) => (
                 <motion.div
-                  key={i}
+                  key={h}
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1, duration: 0.4 }}
                   className="flex items-center gap-3 bento-card"
                 >
-                  <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
                   <span className="text-foreground font-medium text-sm">{h}</span>
                 </motion.div>
               ))}
             </div>
 
-            {location.content.map((p, i) => (
-              <p key={i} className="text-foreground/80 leading-relaxed text-base md:text-lg mb-6">
+            {location.content.map((p) => (
+              <p key={p} className="text-foreground/80 leading-relaxed text-base md:text-lg mb-6">
                 {p}
               </p>
             ))}
@@ -99,7 +99,7 @@ const LocationDetail = () => {
               className="bento-card mt-10"
             >
               <h3 className="font-heading text-xl text-foreground mb-4 tracking-wide font-bold flex items-center gap-2">
-                <Navigation className="h-5 w-5 text-primary" />
+                <Navigation className="h-5 w-5 text-secondary" />
                 Nearby Areas We Also Serve
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
@@ -119,11 +119,11 @@ const LocationDetail = () => {
                 Need Help in {location.name}?
               </h3>
               <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-                Request a free estimate for roofing, remodeling, painting, or exterior improvements.
+                Request a free estimate for new construction, additions, remodeling, roofing, or exterior improvements.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button size="lg" onClick={openQuoteForm} className="gap-2">
-                  Get Free Estimate <ArrowRight className="h-5 w-5" />
+                  Request Free Estimate <ArrowRight className="h-5 w-5" />
                 </Button>
                 <a href={`tel:${siteConfig.primaryPhoneRaw}`}>
                   <Button variant="outline" size="lg" className="gap-2">

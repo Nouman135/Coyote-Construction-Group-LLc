@@ -21,7 +21,7 @@ const ServicePageLayout = ({ service }: Props) => {
           className="absolute inset-0 w-full h-full object-cover object-center"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(220_22%_8%/.82)_0%,hsl(198_90%_45%/.35)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(222_62%_12%/.86)_0%,hsl(58_94%_51%/.22)_100%)]" />
         <div className="relative z-10 container-max px-4 pb-10 md:pb-14 w-full">
           <Link
             to="/services"
@@ -33,7 +33,7 @@ const ServicePageLayout = ({ service }: Props) => {
             {service.title}
           </h1>
           <p className="text-white/80 text-lg">{service.subtitle}</p>
-          <span className="inline-block mt-3 bg-primary text-primary-foreground text-sm font-bold px-4 py-2 rounded-full">
+          <span className="inline-block mt-3 bg-primary text-primary-foreground text-sm font-bold px-4 py-2 rounded-lg">
             {service.price}
           </span>
         </div>
@@ -52,7 +52,7 @@ const ServicePageLayout = ({ service }: Props) => {
 
             <div>
               <h2 className="font-heading text-3xl text-foreground mb-6 tracking-wide font-bold">
-                Our <span className="text-primary">Process</span>
+                Our <span className="text-secondary">Process</span>
               </h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {service.process.map((p, i) => (
@@ -64,7 +64,7 @@ const ServicePageLayout = ({ service }: Props) => {
                     transition={{ delay: i * 0.1 }}
                     className="bento-card"
                   >
-                    <span className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-primary text-primary-foreground font-bold text-sm mb-3">
+                    <span className="inline-flex items-center justify-center h-8 w-8 rounded-lg bg-primary text-primary-foreground font-bold text-sm mb-3">
                       {i + 1}
                     </span>
                     <h3 className="font-heading text-xl text-foreground mb-1 tracking-wide font-bold">{p.step}</h3>
@@ -83,20 +83,20 @@ const ServicePageLayout = ({ service }: Props) => {
               <ul className="space-y-3">
                 {service.features.map((f, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-foreground/90">
-                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                    <CheckCircle className="h-4 w-4 text-secondary mt-0.5 shrink-0" />
                     {f}
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="bg-accent rounded-2xl p-6 text-accent-foreground">
+            <div className="bg-accent rounded-lg p-6 text-accent-foreground">
               <h3 className="font-heading text-2xl mb-2 tracking-wide font-bold">Ready to Start?</h3>
               <p className="text-accent-foreground/80 text-sm mb-4">
-                Request your free estimate and get expert guidance for your project goals.
+                Request your free in-person estimate and get expert guidance for your project goals.
               </p>
               <Button variant="default" className="w-full mb-3 gap-2" onClick={openQuoteForm}>
-                Get Free Estimate <ArrowRight className="h-4 w-4" />
+                Request Free Estimate <ArrowRight className="h-4 w-4" />
               </Button>
               <a href={`tel:${siteConfig.primaryPhoneRaw}`}>
                 <Button variant="outline" className="w-full gap-2">
@@ -105,10 +105,10 @@ const ServicePageLayout = ({ service }: Props) => {
               </a>
             </div>
 
-            <div className="bg-primary/10 rounded-2xl p-6 border border-primary/20">
-              <h3 className="font-heading text-2xl text-foreground mb-2 tracking-wide font-bold">Special Offers</h3>
+            <div className="bg-primary/10 rounded-lg p-6 border border-primary/20">
+              <h3 className="font-heading text-2xl text-foreground mb-2 tracking-wide font-bold">Project Fit</h3>
               <p className="text-foreground/80 text-sm">
-                Ask about our <strong>{siteConfig.offers.customerDiscount}</strong> and <strong>{siteConfig.offers.referralReward}</strong>.
+                Minimum job size is <strong>{siteConfig.minimumJobSize}</strong>. Ask about <strong>{siteConfig.offers.customerDiscount}</strong>.
               </p>
             </div>
           </aside>

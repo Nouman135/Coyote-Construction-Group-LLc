@@ -1,30 +1,20 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { ExternalLink, MapPin, Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/site-config";
 
 const ReviewWidget = () => {
-  useEffect(() => {
-    const existing = document.querySelector(`script[src="${siteConfig.widgets.reviewScriptSrc}"]`);
-    if (existing) return;
-
-    const script = document.createElement("script");
-    script.src = siteConfig.widgets.reviewScriptSrc;
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
-
   return (
-    <section className="section-padding bg-[linear-gradient(180deg,hsl(var(--background))_0%,hsl(var(--primary)/0.04)_100%)]">
+    <section className="section-padding bg-[linear-gradient(180deg,hsl(var(--background))_0%,hsl(var(--primary)/0.05)_100%)]">
       <div className="container-max">
         <div className="text-center mb-10">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block text-primary text-sm font-bold uppercase tracking-widest mb-3"
+            className="inline-block text-secondary text-sm font-bold uppercase tracking-widest mb-3"
           >
-            Real Client Reviews
+            Google Business Profile
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -32,11 +22,11 @@ const ReviewWidget = () => {
             viewport={{ once: true }}
             className="font-heading text-4xl md:text-5xl text-foreground mb-4 tracking-tight font-bold"
           >
-            Trusted by Property Owners
+            Trusted Around Greater Boston
           </motion.h2>
           <div className="flex items-center justify-center gap-1 mb-2">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="h-5 w-5 fill-secondary text-secondary" />
+              <Star key={i} className="h-5 w-5 fill-primary text-primary" />
             ))}
           </div>
         </div>
@@ -46,16 +36,24 @@ const ReviewWidget = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="rounded-2xl border border-border/70 bg-card/80 backdrop-blur-sm p-2 md:p-3 shadow-[0_20px_60px_-30px_hsl(var(--accent)/0.5)]"
+          className="max-w-4xl mx-auto rounded-lg border border-border bg-card p-6 md:p-8 shadow-[0_20px_60px_-34px_hsl(var(--accent)/0.45)]"
         >
-          <iframe
-            className="lc_reviews_widget"
-            src={siteConfig.widgets.reviewIframeSrc}
-            frameBorder="0"
-            scrolling="no"
-            style={{ width: "100%", minWidth: "100%" }}
-            title="Skystone Construction reviews"
-          />
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-5 items-center">
+            <div>
+              <div className="flex items-center gap-2 text-secondary font-bold text-sm mb-2">
+                <MapPin className="h-4 w-4" />
+                Trust Contractors Inc
+              </div>
+              <p className="text-foreground/80 leading-relaxed">
+                Review Trust Contractors Inc on Google or use the profile to confirm business details for Local Services Ads and local search visibility.
+              </p>
+            </div>
+            <a href={siteConfig.googleBusinessProfile} target="_blank" rel="noreferrer">
+              <Button className="rounded-lg gap-2 w-full md:w-auto">
+                Open Profile <ExternalLink className="h-4 w-4" />
+              </Button>
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { CheckCircle, Users, Award, Heart } from "lucide-react";
+import { Award, CheckCircle, Heart, Users } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 
 const About = () => {
@@ -14,10 +14,10 @@ const About = () => {
         <section className="relative h-[40vh] md:h-[50vh] overflow-hidden">
           <img
             src={siteConfig.assets.aboutHeroImage}
-            alt="About Us"
+            alt="Trust Contractors Inc project work"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(220_25%_8%/.85)_0%,hsl(198_90%_45%/.35)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(222_62%_12%/.88)_0%,hsl(58_94%_51%/.22)_100%)]" />
           <div className="relative z-10 flex items-center justify-center h-full text-center px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -28,7 +28,7 @@ const About = () => {
                 About {siteConfig.brand}
               </h1>
               <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
-                Built on trust, craftsmanship, and reliable service across the Oklahoma City metro area.
+                Built on trust, craftsmanship, and reliable service across Greater Boston since {siteConfig.foundedYear}.
               </p>
             </motion.div>
           </div>
@@ -46,13 +46,13 @@ const About = () => {
                 Our Story
               </h2>
               <p className="text-foreground/80 leading-relaxed mb-4">
-                Skystone Construction LLC was built to deliver dependable roofing and remodeling work without the communication gaps and quality shortcuts clients often face.
+                Trust Contractors Inc has provided quality construction services to homeowners in Greater Boston and surrounding areas since 2003.
               </p>
               <p className="text-foreground/80 leading-relaxed mb-4">
-                Our team serves both residential and commercial properties with a practical, detail-focused process from first estimate to final walkthrough.
+                Owner Jean Oliveira personally handles estimates, giving clients direct guidance before a project begins and clear communication as the scope takes shape.
               </p>
               <p className="text-foreground/80 leading-relaxed mb-6">
-                We are proud to support Oklahoma City, Edmond, Norman, Yukon, Bethany, and nearby communities with honest recommendations and premium workmanship.
+                The company focuses on meaningful residential projects, especially new construction, additions, and remodeling, with support for roofing, carpentry, framing, exterior work, and trade coordination.
               </p>
             </motion.div>
           </div>
@@ -65,10 +65,10 @@ const About = () => {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                { icon: CheckCircle, title: "Quality First", desc: "Every project is completed with clean execution and detail-focused craftsmanship." },
-                { icon: Users, title: "Client Focused", desc: "We keep communication clear so you always know the next step." },
-                { icon: Award, title: "Professional Team", desc: "Experienced crews for roofing, remodeling, flooring, siding, and painting." },
-                { icon: Heart, title: "Local Commitment", desc: "We serve our community with honesty, reliability, and pride in our work." },
+                { icon: CheckCircle, title: "Quality First", desc: "All work is completed with careful execution and detail-focused craftsmanship." },
+                { icon: Users, title: "Owner Involved", desc: "Jean personally handles estimates and keeps expectations clear." },
+                { icon: Award, title: "Experienced Team", desc: "More than 20 years of construction, renovation, and exterior project experience." },
+                { icon: Heart, title: "Local Commitment", desc: "Serving Greater Boston homeowners with reliability and pride in the work." },
               ].map((item, i) => (
                 <motion.div
                   key={item.title}
@@ -78,7 +78,7 @@ const About = () => {
                   transition={{ delay: i * 0.1, duration: 0.5 }}
                   className="bento-card text-center"
                 >
-                  <item.icon className="h-10 w-10 text-primary mx-auto mb-4" />
+                  <item.icon className="h-10 w-10 text-secondary mx-auto mb-4" />
                   <h3 className="font-heading text-xl text-foreground mb-2 tracking-wide font-bold">{item.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
                 </motion.div>
@@ -98,13 +98,13 @@ const About = () => {
                 className="bento-card"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Award className="h-5 w-5 text-primary" />
+                  <div className="h-10 w-10 rounded-lg bg-primary/20 flex items-center justify-center">
+                    <Award className="h-5 w-5 text-secondary" />
                   </div>
                   <h3 className="font-heading text-2xl text-foreground tracking-wide font-bold">Our Mission</h3>
                 </div>
                 <p className="text-foreground/80 leading-relaxed">
-                  Deliver premium construction solutions that protect and improve every property we touch while making the process simple for clients.
+                  Deliver dependable construction solutions that improve homes, protect budgets, and keep clients informed from estimate through completion.
                 </p>
               </motion.div>
               <motion.div
@@ -115,13 +115,13 @@ const About = () => {
                 className="bento-card"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Heart className="h-5 w-5 text-primary" />
+                  <div className="h-10 w-10 rounded-lg bg-primary/20 flex items-center justify-center">
+                    <Heart className="h-5 w-5 text-secondary" />
                   </div>
                   <h3 className="font-heading text-2xl text-foreground tracking-wide font-bold">Our Vision</h3>
                 </div>
                 <p className="text-foreground/80 leading-relaxed">
-                  Be the trusted name for roofing and remodeling excellence in the Oklahoma City region.
+                  Be the trusted name for new construction, additions, and remodeling in Greater Boston.
                 </p>
               </motion.div>
             </div>
@@ -140,10 +140,10 @@ const About = () => {
                 Our Promise
               </h2>
               <p className="text-foreground/80 leading-relaxed mb-4">
-                We provide free estimates, transparent project scopes, and high standards from start to finish.
+                We provide free in-person estimates, transparent project scopes, and high standards from start to finish.
               </p>
               <p className="text-foreground/80 leading-relaxed mb-4">
-                Whether you need roofing, remodeling, decks, pergolas, flooring, siding, or painting, your project gets the same quality commitment.
+                Whether you need new construction, an addition, remodeling, roofing, carpentry, framing, siding, painting, windows, doors, or trade coordination, your project gets the same quality commitment.
               </p>
               <p className="text-foreground/80 leading-relaxed">
                 Our goal is simple: excellent work, strong communication, and results you can trust.

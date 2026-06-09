@@ -19,8 +19,8 @@ const Locations = () => {
       <Navbar />
       <main>
         <section className="relative h-[42vh] md:h-[52vh] overflow-hidden">
-          <img src={siteConfig.assets.heroImage} alt="Skystone Construction service locations" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(220_24%_8%/.85)_0%,hsl(198_90%_45%/.3)_100%)]" />
+          <img src={siteConfig.assets.heroImage} alt="Trust Contractors Inc service locations" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(222_62%_12%/.88)_0%,hsl(58_94%_51%/.22)_100%)]" />
           <div className="relative z-10 flex items-center justify-center h-full text-center px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -31,7 +31,7 @@ const Locations = () => {
                 Service Locations
               </h1>
               <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
-                Cities and communities we serve within {siteConfig.serviceRadiusMiles} miles of Oklahoma City.
+                Cities and communities we serve within about {siteConfig.serviceRadiusMiles} miles across Greater Boston.
               </p>
             </motion.div>
           </div>
@@ -59,14 +59,14 @@ const Locations = () => {
                       transition={{ delay: i * 0.05, duration: 0.4 }}
                       className="flex-none basis-full sm:basis-[calc(50%-12px)] lg:basis-[calc(33.333%-16px)] max-w-[420px]"
                     >
-                      <Link to={`/locations/${location.slug}`} className="bg-card rounded-xl border border-border p-6 card-hover-lift flex flex-col justify-between min-h-[200px] shadow-[0_18px_50px_-34px_hsl(var(--accent)/0.8)]">
+                      <Link to={`/locations/${location.slug}`} className="bg-card rounded-lg border border-border p-6 card-hover-lift flex flex-col justify-between min-h-[200px] shadow-[0_18px_50px_-34px_hsl(var(--accent)/0.8)]">
                         <div>
-                          <MapPin className="h-5 w-5 text-primary mb-3" />
+                          <MapPin className="h-5 w-5 text-secondary mb-3" />
                           <h3 className="font-heading text-xl text-foreground font-bold">{location.name}</h3>
                           <p className="text-muted-foreground text-sm mt-1">{location.region}</p>
                           <p className="text-muted-foreground text-sm mt-3 line-clamp-2">{location.description}</p>
                         </div>
-                        <span className="inline-flex items-center gap-1 text-primary font-semibold text-sm mt-5">
+                        <span className="inline-flex items-center gap-1 text-secondary font-semibold text-sm mt-5">
                           Learn More <ArrowRight className="h-4 w-4" />
                         </span>
                       </Link>
@@ -77,7 +77,7 @@ const Locations = () => {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
               <Button size="lg" onClick={openQuoteForm} className="gap-2">
-                Get Free Estimate <ArrowRight className="h-5 w-5" />
+                Request Free Estimate <ArrowRight className="h-5 w-5" />
               </Button>
               <Link to="/locations">
                 <Button variant="outline" size="lg" className="gap-2">
