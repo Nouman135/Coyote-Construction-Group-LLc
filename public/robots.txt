@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://skystone-construction-llc.com/sitemap.xml

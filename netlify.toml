@@ -1,0 +1,17 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[edge_functions]]
+  function = "seo-injection"
+  path = "/*"
+
+[[redirects]]
+  from = "/og-image.png"
+  to = "/skystoneconstructionllc.png"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
