@@ -1,50 +1,20 @@
 import { notFound } from 'next/navigation';
-import { sql } from '@/lib/db';
 import TopBar from '@/components/TopBar';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
-type BlogPostData = {
-  slug: string;
-  title: string;
-  content: string;
-  excerpt?: string;
-  date: string;
-  cardImage?: string;
-};
-
-async function getBlogPost(slug: string): Promise<BlogPostData | null> {
-  try {
-    const result = await sql`SELECT slug, title, content, excerpt, date, cardImage FROM blog_posts WHERE slug = ${slug}`;
-    return (result.rows[0] as BlogPostData) || null;
-  } catch (error) {
-    console.error('Error fetching blog post:', error);
-    return null;
-  }
-}
+import { blogPosts } from '@/lib/blog-data';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-// Generate static parameters for SSG at build time
-// We can also use ISR (Incremental Static Regeneration) for dynamic content
-
 export async function generateStaticParams() {
-  try {
-    const result = await sql`SELECT slug FROM blog_posts ORDER BY date DESC`;
-    return result.rows.map((row: { slug: string }) => ({
-      slug: row.slug,
-    }));
-  } catch (error) {
-    console.error('Error generating static params:', error);
-    return [];
-  }
+  return blogPosts.map((post) => ({ slug: post.slug }));
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
-  const post = await getBlogPost(slug);
+  const post = blogPosts.find((entry) => entry.slug === slug);
 
   if (!post) {
     notFound();
@@ -62,9 +32,12 @@ export default async function BlogPostPage({ params }: PageProps) {
             </h1>
             <div className="flex items-center gap-2 text-muted-foreground text-sm mb-6">
               <span>Published: {post.date}</span>
+              <span>By {post.author}</span>
             </div>
             <div className="prose prose-lg max-w-none text-foreground">
-              <div dangerouslySetInnerHTML={{ __html: post.content }} />
+              {post.content.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
           </section>
         </article>

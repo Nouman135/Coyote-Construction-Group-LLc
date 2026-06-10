@@ -5,12 +5,17 @@ import Footer from "@/components/Footer";
 import { services } from "@/lib/services-data";
 import ServicePageLayout from "@/components/ServicePageLayout";
 
+type PageProps = {
+  params: Promise<{ slug: string }>;
+};
+
 export async function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
 }
 
-export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
-  const service = services.find((item) => item.slug === params.slug);
+export default async function ServiceDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  const service = services.find((item) => item.slug === slug);
 
   if (!service) {
     notFound();
@@ -21,7 +26,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
       <TopBar />
       <Navbar />
       <main>
-        <ServicePageLayout service={service!} />
+        <ServicePageLayout service={service} />
       </main>
       <Footer />
     </div>
