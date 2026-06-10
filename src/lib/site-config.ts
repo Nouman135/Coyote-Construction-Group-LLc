@@ -39,7 +39,7 @@ export const siteConfig = {
     favicon: "/trust-contractors-logo.png",
     ogImage: "/og-image.png",
     homeHeroImage: "/home-hero-banner.jpeg",
-    heroImage: "/hero.png",
-    aboutHeroImage: "/hero.png",
+    heroImage: "/hero.jpg",
+    aboutHeroImage: "/hero.jpg",
   },
 };
