@@ -10,16 +10,18 @@ import { useQuoteForm } from "@/components/QuoteFormContext";
 import { siteConfig } from "@/lib/site-config";
 
 const galleryImages = [
-  { src: "/gallery/project-1.jpg", alt: "Bathroom remodel project" },
-  { src: "/gallery/project-2.jpg", alt: "Interior painting project" },
-  { src: "/gallery/project-3.jpg", alt: "Tiled shower renovation" },
-  { src: "/gallery/project-4.jpg", alt: "Vanity and tile installation" },
-  { src: "/gallery/project-5.jpg", alt: "Bathroom flooring project" },
-  { src: "/gallery/project-6.jpg", alt: "Tile floor installation" },
-  { src: "/gallery/project-7.jpg", alt: "Marble tile installation" },
-  { src: "/gallery/project-8.jpg", alt: "Bathroom tile work in progress" },
-  { src: "/gallery/project-9.jpg", alt: "Marble floor installation" },
-  { src: "/gallery/project-10.jpg", alt: "Full bathroom renovation" },
+  { src: "/gallery/gallery-01.jpeg", alt: "Modern kitchen renovation" },
+  { src: "/gallery/gallery-02.jpeg", alt: "Bright bathroom remodel" },
+  { src: "/gallery/gallery-03.jpeg", alt: "Exterior siding upgrade" },
+  { src: "/gallery/gallery-04.jpeg", alt: "Custom deck construction" },
+  { src: "/gallery/gallery-05.jpeg", alt: "Interior living room refresh" },
+  { src: "/gallery/gallery-06.jpeg", alt: "Roof replacement project" },
+  { src: "/gallery/gallery-07.jpeg", alt: "Framing in progress" },
+  { src: "/gallery/gallery-08.jpeg", alt: "Finished basement lounge" },
+  { src: "/gallery/gallery-09.jpeg", alt: "Addition framing" },
+  { src: "/gallery/gallery-10.jpeg", alt: "Tile shower detail" },
+  { src: "/gallery/gallery-11.jpeg", alt: "Kitchen cabinetry install" },
+  { src: "/gallery/gallery-12.jpeg", alt: "Exterior painting" },
 ];
 
 export default function GalleryPage() {
