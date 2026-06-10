@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { pool } from '@/lib/db';
+import { sql } from '@/lib/db';
 import { z } from 'zod';
 
 // Define schema for blog post data
@@ -18,84 +18,60 @@ export async function POST(request: Request) {
     const data = await request.json();
     const validatedData = blogPostSchema.parse(data);
 
-    // Connect to the database
-    const client = await pool.connect();
-    
-    try {
-      // Check if the blog post already exists
-      const existing = await client.query(
-        'SELECT id FROM blog_posts WHERE slug = $1',
-        [validatedData.slug]
-      );
+    // Check if the blog post already exists
+    const existing = await sql`SELECT id FROM blog_posts WHERE slug = ${validatedData.slug}`;
 
-      const now = new Date().toISOString();
+    const now = new Date().toISOString();
 
-      if (existing.rows.length > 0) {
-        // Update existing blog post
-        await client.query(
-          `UPDATE blog_posts SET 
-            title = $1,
-            content = $2,
-            excerpt = $4,
-            date = $4,
-            cardImage = $5,
-            updated_at = $6
-          WHERE slug = $7`,
-          [
-            validatedData.title,
-            validatedData.content,
-            validatedData.excerpt,
-            validatedData.date,
-            validatedData.cardImage,
-            now,
-            validatedData.slug,
-          ]
-        );
+    if (existing.rows.length > 0) {
+      // Update existing blog post
+      await sql`
+        UPDATE blog_posts SET 
+          title = ${validatedData.title},
+          content = ${validatedData.content},
+          excerpt = ${validatedData.excerpt || null},
+          date = ${validatedData.date},
+          cardImage = ${validatedData.cardImage || null},
+          updated_at = ${now}
+        WHERE slug = ${validatedData.slug}
+      `;
 
-        return NextResponse.json(
-          { success: true, message: 'Blog post updated successfully', action: 'updated' },
-          { status: 200 }
-        );
-      } else {
-        // Insert new blog post
-        await client.query(
-          `INSERT INTO blog_posts 
-            (slug, title, content, excerpt, date, cardImage)
-          VALUES ($1, $2, $3, $4, $5, $6)`,
-          [
-            validatedData.slug,
-            validatedData.title,
-            validatedData.content,
-            validatedData.excerpt,
-            validatedData.date,
-            validatedData.cardImage,
-          ]
-        );
-
-        return NextResponse.json(
-          { success: true, message: 'Blog post created successfully', action: 'created' },
-          { status: 201 }
-        );
-      }
-    } catch (dbError) {
-      console.error('Database error:', dbError);
       return NextResponse.json(
-        { success: false, message: 'Failed to process blog post', error: String(dbError) },
-        { status: 500 }
+        { success: true, message: 'Blog post updated successfully', action: 'updated' },
+        { status: 200 }
       );
-    } finally {
-      client.release();
+    } else {
+      // Insert new blog post
+      await sql`
+        INSERT INTO blog_posts 
+          (slug, title, content, excerpt, date, cardImage)
+        VALUES (
+          ${validatedData.slug},
+          ${validatedData.title},
+          ${validatedData.content},
+          ${validatedData.excerpt || null},
+          ${validatedData.date},
+          ${validatedData.cardImage || null}
+        )
+      `;
+
+      return NextResponse.json(
+        { success: true, message: 'Blog post created successfully', action: 'created' },
+        { status: 201 }
+      );
     }
-  } catch (validationError) {
-    console.error('Validation error:', validationError);
+  } catch (error: unknown) {
+    if (error instanceof z.ZodError) {
+      console.error('Validation error:', error.errors);
+      return NextResponse.json(
+        { success: false, message: 'Invalid blog post data', details: error.errors },
+        { status: 400 }
+      );
+    }
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error('Error:', errorMessage);
     return NextResponse.json(
-      { success: false, message: 'Invalid blog post data', details: validationError.errors },
-      { status: 400 }
-    );
-  } catch (error) {
-    console.error('Unexpected error:', error);
-    return NextResponse.json(
-      { success: false, message: 'Internal server error', error: String(error) },
+      { success: false, message: 'Failed to process blog post', error: errorMessage },
       { status: 500 }
     );
   }
@@ -104,15 +80,18 @@ export async function POST(request: Request) {
 // Health check endpoint
 export async function GET() {
   try {
-    const { healthy } = await import('@/lib/db');
-    const status = await healthy();
+    const { checkHealth } = await import('@/lib/db');
+    const status = await checkHealth();
     
     return NextResponse.json({
+      success: true,
       healthy: status.healthy,
-      database: 'connected'
+      database: status.healthy ? 'connected' : 'disconnected',
+      poolSize: status.poolSize,
     });
   } catch (error) {
     return NextResponse.json({
+      success: false,
       healthy: false,
       database: 'disconnected',
       error: String(error)

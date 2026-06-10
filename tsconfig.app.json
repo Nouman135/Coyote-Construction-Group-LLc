@@ -30,6 +30,17 @@
     "useDefineForClassFields": true
   },
   "include": [
-    "src"
+    "src",
+    "app"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next",
+    "dist",
+    "netlify",
+    "src/App.tsx",
+    "src/main.tsx",
+    "src/vite-env.d.ts",
+    "src/pages-migrated"
   ]
 }

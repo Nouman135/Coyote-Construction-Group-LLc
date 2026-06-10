@@ -26,7 +26,7 @@ const ServicePageLayout = ({ service }: Props) => {
         <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(222_62%_12%/.86)_0%,hsl(58_94%_51%/.22)_100%)]" />
         <div className="relative z-10 container-max px-4 pb-10 md:pb-14 w-full">
           <Link
-            to="/services"
+            href="/services"
             className="inline-flex items-center gap-1 text-white/80 hover:text-white text-sm mb-4 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" /> All Services

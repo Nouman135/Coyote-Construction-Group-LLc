@@ -1,12 +1,8 @@
 import { notFound } from 'next/navigation';
-import { pool } from '@/lib/db';
+import { sql } from '@/lib/db';
 import TopBar from '@/components/TopBar';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
-type Params = {
-  slug: string;
-};
 
 type BlogPostData = {
   slug: string;
@@ -19,40 +15,25 @@ type BlogPostData = {
 
 async function getBlogPost(slug: string): Promise<BlogPostData | null> {
   try {
-    const client = await pool.connect();
-    
-    const result = await client.query(
-      'SELECT slug, title, content, excerpt, date, cardImage FROM blog_posts WHERE slug = $1',
-      [slug]
-    );
-    
-    client.release();
-    
-    return result.rows[0] || null;
+    const result = await sql`SELECT slug, title, content, excerpt, date, cardImage FROM blog_posts WHERE slug = ${slug}`;
+    return (result.rows[0] as BlogPostData) || null;
   } catch (error) {
     console.error('Error fetching blog post:', error);
     return null;
   }
 }
 
-interface PageProps {
-  params: Params;
-}
+type PageProps = {
+  params: Promise<{ slug: string }>;
+};
 
 // Generate static parameters for SSG at build time
 // We can also use ISR (Incremental Static Regeneration) for dynamic content
 
-export async function generateStaticParams(): Promise<Params[]> {
+export async function generateStaticParams() {
   try {
-    const client = await pool.connect();
-    
-    const result = await client.query(
-      'SELECT slug FROM blog_posts ORDER BY date DESC'
-    );
-    
-    client.release();
-    
-    return result.rows.map((row) => ({
+    const result = await sql`SELECT slug FROM blog_posts ORDER BY date DESC`;
+    return result.rows.map((row: { slug: string }) => ({
       slug: row.slug,
     }));
   } catch (error) {
@@ -61,28 +42,8 @@ export async function generateStaticParams(): Promise<Params[]> {
   }
 }
 
-// Dynamic metadata generation
-// export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-//   const post = await getBlogPost(params.slug);
-//   
-//   if (!post) {
-//     return { title: 'Blog Post Not Found' };
-//   }
-// 
-//   return {
-//     title: post.title,
-//     description: post.excerpt,
-//     openGraph: {
-//       title: post.title,
-//       description: post.excerpt,
-//       images: [post.cardImage || '/default-blog-image.jpg'],
-//       url: `https://yourdomain.com/blog/${post.slug}`,
-//     },
-//   };
-// }
-
 export default async function BlogPostPage({ params }: PageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const post = await getBlogPost(slug);
 
   if (!post) {
@@ -103,7 +64,6 @@ export default async function BlogPostPage({ params }: PageProps) {
               <span>Published: {post.date}</span>
             </div>
             <div className="prose prose-lg max-w-none text-foreground">
-              {/* Render HTML content - this would need proper sanitization in production */}
               <div dangerouslySetInnerHTML={{ __html: post.content }} />
             </div>
           </section>

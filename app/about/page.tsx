@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";

@@ -1,19 +1,10 @@
-import { Pool } from 'serverless-postgres';
-
-// Configure the PostgreSQL connection
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-  max: 10, // maximum number of clients in the pool
-});
+import { createPool } from '@vercel/postgres';
+import { sql } from '@vercel/postgres';
 
 // Create tables if they don't exist
 async function initDatabase() {
-  const client = await pool.connect();
   try {
-    await client.query(`
+    await sql`
       CREATE TABLE IF NOT EXISTS site_config (
         id SERIAL PRIMARY KEY,
         key TEXT UNIQUE NOT NULL,
@@ -21,9 +12,9 @@ async function initDatabase() {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
-    `);
+    `;
 
-    await client.query(`
+    await sql`
       CREATE TABLE IF NOT EXISTS blog_posts (
         id SERIAL PRIMARY KEY,
         slug TEXT UNIQUE NOT NULL,
@@ -35,13 +26,11 @@ async function initDatabase() {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
-    `);
+    `;
 
     console.log('Database tables initialized successfully');
   } catch (error) {
     console.error('Error initializing database:', error);
-  } finally {
-    client.release();
   }
 }
 
@@ -51,13 +40,11 @@ initDatabase();
 // Health check for the database connection
 async function checkHealth() {
   try {
-    const client = await pool.connect();
-    await client.query('SELECT 1');
-    client.release();
-    return { healthy: true, poolSize: pool.totalCount };
+    const { rows } = await sql`SELECT 1`;
+    return { healthy: true, poolSize: rows.length };
   } catch (error) {
     return { healthy: false, error: String(error) };
   }
 }
 
-export { pool, checkHealth };
+export { sql, checkHealth };
