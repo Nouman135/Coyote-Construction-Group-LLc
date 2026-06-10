@@ -22,7 +22,7 @@ export const siteConfig = {
     estimateTurnaround: "Estimates typically completed within 3 days",
   },
   offers: {
-    customerDiscount: "10% off for new customers",
+    customerDiscount: "Free in-person estimates",
     estimate: "Free in-person estimates",
   },
   seo: {
@@ -35,10 +35,10 @@ export const siteConfig = {
     chatResourcesUrl: "https://widgets.leadconnectorhq.com/chat-widget/loader.js",
   },
   assets: {
-    logo: "/trust-contractors-logo.svg",
-    favicon: "/trust-contractors-logo.svg",
+    logo: "/logo.png",
+    favicon: "/logo.png",
     ogImage: "/og-image.png",
-    heroImage: "/hero.png",
-    aboutHeroImage: "/hero.png",
+    heroImage: "/hero.jpg",
+    aboutHeroImage: "/hero.jpg",
   },
 };
