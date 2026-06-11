@@ -101,10 +101,6 @@ const WhyChooseUs = () => {
             </motion.div>
           ))}
         </div>
-
-        <div className="mt-8 text-center text-primary font-bold">
-          {siteConfig.offers.customerDiscount}
-        </div>
       </div>
     </section>
   );

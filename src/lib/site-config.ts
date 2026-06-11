@@ -22,7 +22,6 @@ export const siteConfig = {
     estimateTurnaround: "Estimates typically completed within 3 days",
   },
   offers: {
-    customerDiscount: "10% off for new customers",
     estimate: "Free in-person estimates",
   },
   seo: {

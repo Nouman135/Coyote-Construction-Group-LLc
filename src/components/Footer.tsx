@@ -63,7 +63,7 @@ const Footer = () => {
             </p>
             <div className="mt-4 bg-primary/10 border border-primary/25 rounded-lg px-4 py-3">
               <p className="text-primary font-semibold text-sm">
-                {siteConfig.offers.customerDiscount} plus {siteConfig.offers.estimate}
+                {siteConfig.offers.estimate}
               </p>
             </div>
           </div>

@@ -110,7 +110,7 @@ const ServicePageLayout = ({ service }: Props) => {
             <div className="bg-primary/10 rounded-lg p-6 border border-primary/20">
               <h3 className="font-heading text-2xl text-foreground mb-2 tracking-wide font-bold">Project Fit</h3>
               <p className="text-foreground/80 text-sm">
-                Minimum job size is <strong>{siteConfig.minimumJobSize}</strong>. Ask about <strong>{siteConfig.offers.customerDiscount}</strong>.
+                Minimum job size is <strong>{siteConfig.minimumJobSize}</strong>. <strong>{siteConfig.offers.estimate}</strong> are available.
               </p>
             </div>
           </aside>
