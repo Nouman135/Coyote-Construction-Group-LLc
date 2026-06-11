@@ -88,11 +88,7 @@ const HeroSection = () => {
                 className="glass-card rounded-lg px-5 py-3 inline-flex items-center gap-3"
               >
                 <span className="text-white/90 font-semibold text-sm">
-<<<<<<< HEAD
                   {siteConfig.offers.customerDiscount}. Jean Oliveira personally handles estimates and responds quickly.
-=======
-                  Jean Oliveira personally handles estimates and responds quickly.
->>>>>>> ab53c2834157231393ab0b0a1963dc5819917bb7
                 </span>
               </motion.div>
             </motion.div>
