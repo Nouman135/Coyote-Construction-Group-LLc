@@ -99,6 +99,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.7 }}
             className="lg:col-span-5"
+            id="quote-form"
           >
             <div className="rounded-lg shadow-2xl bg-card/95 border border-white/20 backdrop-blur-md p-4">
               <h3 className="font-heading text-2xl text-foreground mb-1 font-bold">Request a Free Estimate</h3>

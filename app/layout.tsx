@@ -3,6 +3,8 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "next-themes";
+import ExternalTrackingScript from "@/components/ExternalTrackingScript";
+import { SiteProviders } from "./providers";
 
 export const metadata = {
   title: "Trust Contractors Inc",
@@ -29,11 +31,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} font-inter`}>
+        <ExternalTrackingScript />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <TooltipProvider>
-            <main className="min-h-screen bg-background">{children}</main>
-            <Toaster />
-          </TooltipProvider>
+          <SiteProviders>
+            <TooltipProvider>
+              <main className="min-h-screen bg-background">{children}</main>
+              <Toaster />
+            </TooltipProvider>
+          </SiteProviders>
         </ThemeProvider>
       </body>
     </html>

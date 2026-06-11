@@ -33,6 +33,12 @@ export const siteConfig = {
     chatLoaderSrc: "https://widgets.leadconnectorhq.com/loader.js",
     chatResourcesUrl: "https://widgets.leadconnectorhq.com/chat-widget/loader.js",
   },
+  gohighlevel: {
+    locationId: "5HX3873p6HhdUSTpBxAl",
+    trackingId: "tk_5d6ee6ddd46c44babae8fdf1a2ed25ef",
+    externalTrackingScriptSrc: "https://link.adssurveys.com/js/external-tracking.js",
+    quoteFormId: "Free Estimate Form",
+  },
   assets: {
     logo: "/trust-contractors-logo.png",
     favicon: "/trust-contractors-logo.png",

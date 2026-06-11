@@ -3,8 +3,10 @@
 import { FormEvent, useState } from "react";
 import { Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 import { services } from "@/lib/services-data";
 import { siteConfig } from "@/lib/site-config";
+import { quoteFormFieldLabels, splitFullName, submitExternalFormSubmission } from "@/lib/gohighlevel";
 import { cn } from "@/lib/utils";
 
 interface EmbeddedQuoteFormProps {
@@ -23,29 +25,50 @@ const initialForm = {
 };
 
 const EmbeddedQuoteForm = ({ className, height = 588, enableScroll = false }: EmbeddedQuoteFormProps) => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState(initialForm);
 
   const updateField = (field: keyof typeof initialForm, value: string) => {
     setForm((current) => ({ ...current, [field]: value }));
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const subject = encodeURIComponent(`Website estimate request - ${form.name || siteConfig.brand}`);
-    const body = encodeURIComponent(
-      [
-        `Name: ${form.name}`,
-        `Phone: ${form.phone}`,
-        `Email: ${form.email}`,
-        `Service: ${form.service}`,
-        `Timeline: ${form.timeline}`,
-        "",
-        "Project details:",
-        form.message,
-      ].join("\n"),
-    );
+    setIsSubmitting(true);
 
-    window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
+    const { firstName, lastName } = splitFullName(form.name);
+    const formData = {
+      first_name: firstName,
+      last_name: lastName,
+      email: form.email,
+      phone: form.phone,
+      "contact.service_requested": form.service,
+      "contact.project_timeline": form.timeline,
+      "contact.project_details": form.message,
+    };
+
+    try {
+      await submitExternalFormSubmission({
+        formId: siteConfig.gohighlevel.quoteFormId,
+        formData,
+        formLabels: quoteFormFieldLabels,
+      });
+
+      toast({
+        title: "Estimate Request Submitted",
+        description: "Thank you. Jean Oliveira will follow up with you shortly.",
+      });
+      setForm(initialForm);
+    } catch {
+      toast({
+        title: "Submission Failed",
+        description: "Please try again or call us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -83,6 +106,7 @@ const EmbeddedQuoteForm = ({ className, height = 588, enableScroll = false }: Em
             onChange={(event) => updateField("email", event.target.value)}
             className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm font-normal outline-none focus:ring-2 focus:ring-ring"
             type="email"
+            required
           />
         </label>
 
@@ -121,8 +145,8 @@ const EmbeddedQuoteForm = ({ className, height = 588, enableScroll = false }: Em
           />
         </label>
 
-        <Button type="submit" className="w-full rounded-lg">
-          Request Estimate
+        <Button type="submit" className="w-full rounded-lg" disabled={isSubmitting}>
+          {isSubmitting ? "Submitting..." : "Request Estimate"}
         </Button>
       </form>
 

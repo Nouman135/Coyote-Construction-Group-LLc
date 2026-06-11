@@ -7,10 +7,12 @@ import ReviewWidget from "@/components/ReviewWidget";
 import ServiceAreas from "@/components/ServiceAreas";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
+import ScrollToQuoteForm from "@/components/ScrollToQuoteForm";
 
 export default function Home() {
   return (
     <>
+      <ScrollToQuoteForm />
       <TopBar />
       <Navbar />
       <main>
