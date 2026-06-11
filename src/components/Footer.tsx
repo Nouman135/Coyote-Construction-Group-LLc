@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { useQuoteForm } from "@/components/QuoteFormContext";
 import { siteConfig } from "@/lib/site-config";
 
+const logoClassName = "w-full max-w-[135px] object-contain";
+
 const Footer = () => {
   const { openQuoteForm } = useQuoteForm();
 
@@ -49,8 +51,12 @@ const Footer = () => {
       <div className="container-max section-padding">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <div className="mb-4 inline-flex items-center justify-center rounded-lg bg-white p-3">
-              <img src={siteConfig.assets.logo} alt={siteConfig.brand} className="h-16 w-auto object-contain" />
+            <div className="mb-4 max-w-[135px]">
+              <img
+                src="/trust-contractors-logo.png"
+                alt={siteConfig.brand}
+                className={logoClassName}
+              />
             </div>
             <p className="text-accent-foreground/80 text-sm leading-relaxed">
               Trust Contractors Inc has served Greater Boston since 2003 with new construction, additions, remodeling, roofing, exterior work, and general contracting.

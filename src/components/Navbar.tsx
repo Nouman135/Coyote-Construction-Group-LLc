@@ -11,6 +11,8 @@ import { Button } from "@/components/ui/button";
 import { useQuoteForm } from "@/components/QuoteFormContext";
 import { siteConfig } from "@/lib/site-config";
 
+const logoClassName = "w-full max-w-[135px] object-contain";
+
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services", dropdown: "services" },
@@ -68,8 +70,8 @@ const location = usePathname();
         }`}
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-border">
-          <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-            <img src={siteConfig.assets.logo} alt={siteConfig.brand} className="h-10 w-auto" />
+          <Link href="/" className="block max-w-[135px]" onClick={() => setOpen(false)}>
+            <img src={siteConfig.assets.logo} alt={siteConfig.brand} className={logoClassName} />
           </Link>
           <button onClick={() => setOpen(false)} className="p-1 text-foreground/90 hover:text-secondary">
             <X className="h-5 w-5" />
@@ -143,8 +145,8 @@ const location = usePathname();
     <>
       <nav className="sticky top-0 z-[120] bg-white/65 backdrop-blur-xl shadow-[0_10px_35px_-18px_hsl(var(--accent)/0.65)] border-b border-white/35">
         <div className="container-max flex items-center justify-between px-4 py-2.5">
-          <Link href="/" className="flex items-center gap-2">
-            <img src={siteConfig.assets.logo} alt={siteConfig.brand} className="h-12 w-auto" />
+          <Link href="/" className="block max-w-[135px]">
+            <img src={siteConfig.assets.logo} alt={siteConfig.brand} className={logoClassName} />
           </Link>
           <ul className="hidden md:flex items-center gap-6">
             {navLinks.map((link) =>
