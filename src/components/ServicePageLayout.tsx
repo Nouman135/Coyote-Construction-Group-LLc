@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, CheckCircle, Phone } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle, ExternalLink, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { ServiceData } from "@/lib/services-data";
 import { useQuoteForm } from "@/components/QuoteFormContext";
@@ -100,6 +100,16 @@ const ServicePageLayout = ({ service }: Props) => {
               <Button variant="default" className="w-full mb-3 gap-2" onClick={openQuoteForm}>
                 Request Free Estimate <ArrowRight className="h-4 w-4" />
               </Button>
+              <a
+                href={`${siteConfig.legacyWebsiteUrl}/services/${service.slug}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block mb-3"
+              >
+                <Button variant="outline" className="w-full gap-2">
+                  View Previous Website Page <ExternalLink className="h-4 w-4" />
+                </Button>
+              </a>
               <a href={`tel:${siteConfig.primaryPhoneRaw}`}>
                 <Button variant="outline" className="w-full gap-2">
                   <Phone className="h-4 w-4" /> {siteConfig.primaryPhoneDisplay}

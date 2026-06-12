@@ -2,6 +2,8 @@ export const siteConfig = {
   brand: "Trust Contractors Inc",
   officialName: "Trust Contractors Inc",
   domain: "https://www.trustcontractorsboston.com",
+  legacyWebsiteUrl: "https://www.trustcontractorsboston.com",
+  legacyGalleryUrl: "https://www.trustcontractorsboston.com/gallery",
   googleBusinessProfile: "https://share.google/gdKWQ8iR7VA9mPS4s",
   ownerName: "Jean Oliveira",
   primaryPhoneDisplay: "(781) 277-8381",

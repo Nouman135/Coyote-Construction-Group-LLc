@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import GalleryGrid from "@/components/GalleryGrid";
 import { Button } from "@/components/ui/button";
 import { useQuoteForm } from "@/components/QuoteFormContext";
 import { siteConfig } from "@/lib/site-config";
-import { constructionServicesGallery } from "@/lib/gallery-data";
+import { constructionServicesGallery, renovationRemodelingGallery } from "@/lib/gallery-data";
 
 const Gallery = () => {
   const { openQuoteForm } = useQuoteForm();
@@ -42,37 +43,34 @@ const Gallery = () => {
         </section>
 
         <section className="py-20 md:py-28 bg-[linear-gradient(180deg,hsl(var(--background))_0%,hsl(var(--primary)/0.05)_100%)]">
-          <div className="container-max">
-            <div className="text-center mb-12">
-              <h2 className="font-heading text-3xl md:text-4xl text-foreground tracking-tight font-bold">
-                Construction Services Gallery
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {constructionServicesGallery.map((image, index) => (
-                <motion.div
-                  key={image.src}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
-                  className="group relative overflow-hidden rounded-lg bg-muted shadow-lg aspect-square"
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </motion.div>
-              ))}
+          <div className="container-max space-y-20">
+            <div>
+              <div className="text-center mb-12">
+                <h2 className="font-heading text-3xl md:text-4xl text-foreground tracking-tight font-bold">
+                  Construction Services Gallery
+                </h2>
+              </div>
+              <GalleryGrid images={constructionServicesGallery} />
             </div>
 
-            <div className="flex justify-center mt-16">
+            <div>
+              <div className="text-center mb-12">
+                <h2 className="font-heading text-3xl md:text-4xl text-foreground tracking-tight font-bold">
+                  Renovation and Remodeling Gallery
+                </h2>
+              </div>
+              <GalleryGrid images={renovationRemodelingGallery} />
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" onClick={openQuoteForm} className="gap-2">
                 Request Free Estimate <ArrowRight className="h-5 w-5" />
               </Button>
+              <a href={siteConfig.legacyGalleryUrl} target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="outline" className="gap-2">
+                  View Previous Website Gallery <ExternalLink className="h-5 w-5" />
+                </Button>
+              </a>
             </div>
           </div>
         </section>
