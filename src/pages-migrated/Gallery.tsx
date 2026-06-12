@@ -67,8 +67,8 @@ const Gallery = () => {
                 Request Free Estimate <ArrowRight className="h-5 w-5" />
               </Button>
               <a href={siteConfig.legacyGalleryUrl} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="outline" className="gap-2">
-                  View Previous Website Gallery <ExternalLink className="h-5 w-5" />
+                <Button size="lg" variant="outline" className="gap-2 text-foreground border-foreground/20 hover:bg-foreground/5 hover:text-foreground">
+                  View gallery <ExternalLink className="h-5 w-5" />
                 </Button>
               </a>
             </div>

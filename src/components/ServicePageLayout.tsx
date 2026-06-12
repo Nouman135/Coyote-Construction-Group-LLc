@@ -101,8 +101,8 @@ const ServicePageLayout = ({ service }: Props) => {
                 Request Free Estimate <ArrowRight className="h-4 w-4" />
               </Button>
               <a href={siteConfig.legacyServicesUrl} target="_blank" rel="noopener noreferrer" className="block mb-3">
-                <Button variant="outline" className="w-full gap-2">
-                  View Previous Website Page <ExternalLink className="h-4 w-4" />
+                <Button variant="outline" className="w-full gap-2 bg-white text-foreground border-foreground/20 hover:bg-white/90 hover:text-foreground">
+                  View All Services <ExternalLink className="h-4 w-4" />
                 </Button>
               </a>
               <a href={`tel:${siteConfig.primaryPhoneRaw}`}>
