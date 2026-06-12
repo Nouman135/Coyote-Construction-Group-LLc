@@ -100,12 +100,7 @@ const ServicePageLayout = ({ service }: Props) => {
               <Button variant="default" className="w-full mb-3 gap-2" onClick={openQuoteForm}>
                 Request Free Estimate <ArrowRight className="h-4 w-4" />
               </Button>
-              <a
-                href={`${siteConfig.legacyWebsiteUrl}/services/${service.slug}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block mb-3"
-              >
+              <a href={siteConfig.legacyServicesUrl} target="_blank" rel="noopener noreferrer" className="block mb-3">
                 <Button variant="outline" className="w-full gap-2">
                   View Previous Website Page <ExternalLink className="h-4 w-4" />
                 </Button>
