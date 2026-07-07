@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "next-themes";
 import ExternalTrackingScript from "@/components/ExternalTrackingScript";
 import ReputationReviewScript from "@/components/ReputationReviewScript";
+import ChatWidgetLoader from "@/components/ChatWidgetLoader";
 import { SiteProviders } from "./providers";
 
 export const metadata = {
@@ -42,6 +43,7 @@ export default function RootLayout({
             </TooltipProvider>
           </SiteProviders>
         </ThemeProvider>
+        <ChatWidgetLoader />
       </body>
     </html>
   );
