@@ -41,6 +41,13 @@ export const siteConfig = {
     trackingId: "tk_5d6ee6ddd46c44babae8fdf1a2ed25ef",
     externalTrackingScriptSrc: "https://link.adssurveys.com/js/external-tracking.js",
     quoteFormId: "Free Estimate Form",
+    inlineFormId: "3G6eLO14xFk14EUSDju4",
+    inlineFormUrl: "https://link.adssurveys.com/widget/form/3G6eLO14xFk14EUSDju4",
+    inlineFormEmbedScriptSrc: "https://link.adssurveys.com/js/form_embed.js",
+  },
+  reputationHub: {
+    reviewWidgetScriptSrc: "https://reputationhub.site/reputation/assets/review-widget.js",
+    reviewWidgetIframeSrc: "https://reputationhub.site/reputation/widgets/review_widget/5HX3873p6HhdUSTpBxAl",
   },
   assets: {
     logo: "/trust-contractors-logo.png",

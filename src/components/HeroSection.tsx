@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Phone, ShieldCheck, Sparkles, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useQuoteForm } from "@/components/QuoteFormContext";
-import EmbeddedQuoteForm from "@/components/EmbeddedQuoteForm";
+import GhlFormEmbed from "@/components/GhlFormEmbed";
 import { siteConfig } from "@/lib/site-config";
 
 const badges = [
@@ -106,7 +106,7 @@ const HeroSection = () => {
               <p className="text-muted-foreground text-sm mb-4">
                 Free in-person estimates with typical turnaround in 3 days.
               </p>
-              <EmbeddedQuoteForm height={588} />
+              <GhlFormEmbed height={828} />
             </div>
           </motion.div>
         </div>
