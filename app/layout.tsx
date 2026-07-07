@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "next-themes";
 import ExternalTrackingScript from "@/components/ExternalTrackingScript";
+import ReputationReviewScript from "@/components/ReputationReviewScript";
 import { SiteProviders } from "./providers";
 
 export const metadata = {
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="light" suppressHydrationWarning>
       <body className={`${inter.variable} font-inter`}>
+        <ReputationReviewScript />
         <ExternalTrackingScript />
         <ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light" enableSystem={false}>
           <SiteProviders>
