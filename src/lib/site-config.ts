@@ -51,7 +51,7 @@ export const siteConfig = {
   },
   assets: {
     logo: "/trust-contractors-logo.png",
-    favicon: "/trust-contractors-logo.png",
+    favicon: "/favicon.svg",
     ogImage: "/og-image.png",
     homeHeroImage: "/home-hero-banner.jpeg",
     heroImage: "/hero.jpg",

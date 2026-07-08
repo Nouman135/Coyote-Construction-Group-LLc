@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -7,10 +8,20 @@ import ExternalTrackingScript from "@/components/ExternalTrackingScript";
 import ReputationReviewScript from "@/components/ReputationReviewScript";
 import ChatWidgetLoader from "@/components/ChatWidgetLoader";
 import { SiteProviders } from "./providers";
+import { siteConfig } from "@/lib/site-config";
 
-export const metadata = {
-  title: "Trust Contractors Inc",
-  description: "Trust Contractors Inc provides new construction, additions, remodeling, roofing, carpentry, siding, painting, and general contracting across Greater Boston.",
+export const metadata: Metadata = {
+  title: siteConfig.brand,
+  description: siteConfig.seo.defaultDescription,
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.png",
+  },
 };
 
 export const viewport = {
