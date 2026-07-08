@@ -32,7 +32,7 @@ export const siteConfig = {
       "Trust Contractors Inc provides new construction, additions, remodeling, roofing, carpentry, siding, painting, and general contracting across Greater Boston.",
   },
   widgets: {
-    chatWidgetId: "6a4d5a9b64ed9f85539589e4",
+    chatWidgetId: "6a4e7192f505ece9b449bc56",
     chatLoaderSrc: "https://widgets.leadconnectorhq.com/loader.js",
     chatResourcesUrl: "https://widgets.leadconnectorhq.com/chat-widget/loader.js",
   },

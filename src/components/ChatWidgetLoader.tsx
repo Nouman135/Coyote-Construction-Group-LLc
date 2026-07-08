@@ -7,8 +7,13 @@ const ChatWidgetLoader = () => {
   useEffect(() => {
     if (!siteConfig.widgets.chatWidgetId) return;
 
-    const existing = document.querySelector(`script[src="${siteConfig.widgets.chatLoaderSrc}"]`);
-    if (existing) return;
+    const existing = document.querySelector<HTMLScriptElement>(
+      `script[src="${siteConfig.widgets.chatLoaderSrc}"]`,
+    );
+    if (existing?.getAttribute("data-widget-id") === siteConfig.widgets.chatWidgetId) {
+      return;
+    }
+    existing?.remove();
 
     const script = document.createElement("script");
     script.src = siteConfig.widgets.chatLoaderSrc;
