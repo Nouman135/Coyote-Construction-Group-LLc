@@ -5,6 +5,7 @@ import { Phone, ShieldCheck, Sparkles, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useQuoteForm } from "@/components/QuoteFormContext";
 import GhlFormEmbed from "@/components/GhlFormEmbed";
+import { LeadConnectorEmbedRedirect } from "@/components/LeadConnectorEmbedRedirect";
 import { siteConfig } from "@/lib/site-config";
 
 const badges = [
@@ -24,6 +25,7 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+      <LeadConnectorEmbedRedirect event="form" redirectTo="/book" />
       <img
         src={siteConfig.assets.homeHeroImage}
         alt={`${siteConfig.brand} construction and remodeling services`}
