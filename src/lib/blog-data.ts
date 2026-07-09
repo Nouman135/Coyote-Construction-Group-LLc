@@ -1,14 +1,6 @@
-export interface BlogPost {
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  author: string;
-  cardImage: string;
-  heroImage: string;
-  images: string[];
-  content: string[];
-}
+import type { BlogPost } from "@/lib/blog-types";
+
+export type { BlogPost };
 
 export const blogPosts: BlogPost[] = [
   {
