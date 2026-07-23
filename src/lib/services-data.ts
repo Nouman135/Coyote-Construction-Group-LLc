@@ -15,7 +15,7 @@ export const services: ServiceData[] = [
     title: "New Construction",
     subtitle: "Ground-up residential builds managed from planning to completion",
     price: "Free Estimate",
-    image: "/services/Deck_Construction.png",
+    image: "/gallery/construction-services-gallery-01.jpg",
     description:
       "Trust Contractors Inc manages new construction projects with careful planning, clear communication, and detail-focused craftsmanship. Jean Oliveira personally handles estimates so every scope starts with practical guidance and realistic expectations.",
     features: [
@@ -38,7 +38,7 @@ export const services: ServiceData[] = [
     title: "Home Additions",
     subtitle: "More space for growing homes and higher-value properties",
     price: "Free Estimate",
-    image: "/services/Kitchen_Bath_Remodeling.png",
+    image: "/gallery/construction-services-gallery-09.jpg",
     description:
       "Home additions are one of Trust Contractors Inc's priority services. We help Greater Boston homeowners expand living space with additions designed to connect cleanly with the existing structure and improve everyday function.",
     features: [
@@ -61,7 +61,7 @@ export const services: ServiceData[] = [
     title: "Home Remodeling",
     subtitle: "Whole-home and targeted renovations with dependable execution",
     price: "Free Estimate",
-    image: "/services/Kitchen_Bath_Remodeling.png",
+    image: "/gallery/construction-services-gallery-04.jpg",
     description:
       "We remodel homes with a practical process that balances design, budget, schedule, and finish quality. From layout updates to major interior transformations, Trust Contractors Inc keeps projects organized from start to finish.",
     features: [
@@ -84,7 +84,7 @@ export const services: ServiceData[] = [
     title: "General Contracting",
     subtitle: "Owner-led coordination for complex residential construction work",
     price: "Free Estimate",
-    image: "/services/Pergola_Construction.png",
+    image: "/gallery/construction-services-gallery-10.jpg",
     description:
       "Trust Contractors Inc provides general contracting for homeowners who need one accountable team to coordinate the details. We organize schedules, trade work, site communication, and quality control for projects of meaningful size.",
     features: [
@@ -130,7 +130,7 @@ export const services: ServiceData[] = [
     title: "Bathroom Remodeling",
     subtitle: "Bathroom renovations with clean finishes and careful coordination",
     price: "Free Estimate",
-    image: "/services/Kitchen_Bath_Remodeling.png",
+    image: "/gallery/project-3.jpg",
     description:
       "From practical refreshes to full bathroom renovations, Trust Contractors Inc updates bathrooms with attention to waterproofing, layout, fixtures, tile, ventilation, and long-term usability.",
     features: [
@@ -199,7 +199,7 @@ export const services: ServiceData[] = [
     title: "HVAC, Plumbing and Electrical",
     subtitle: "Trade coordination for remodeling and construction projects",
     price: "Free Estimate",
-    image: "/services/Kitchen_Bath_Remodeling.png",
+    image: "/services/HVAC_Plumbing_Electrical.png",
     description:
       "For renovation, addition, and new construction projects, Trust Contractors Inc coordinates HVAC, plumbing, and electrical needs so the work fits the overall plan and code requirements.",
     features: [
@@ -222,7 +222,7 @@ export const services: ServiceData[] = [
     title: "Carpentry Services",
     subtitle: "Interior and exterior carpentry with practical craftsmanship",
     price: "Free Estimate",
-    image: "/services/Pergola_Construction.png",
+    image: "/gallery/construction-services-gallery-02.jpg",
     description:
       "Our carpentry work supports new construction, remodels, additions, decks, porches, trim, and finish details. We focus on sturdy execution and clean integration with the rest of the project.",
     features: [
@@ -245,7 +245,7 @@ export const services: ServiceData[] = [
     title: "Framing Contractor",
     subtitle: "Framing support for additions, remodels, and new construction",
     price: "Free Estimate",
-    image: "/services/Deck_Construction.png",
+    image: "/gallery/construction-services-gallery-10.jpg",
     description:
       "Trust Contractors Inc provides framing services for structural changes, additions, and new builds. We coordinate framing around the approved scope so the project moves forward cleanly.",
     features: [
@@ -291,7 +291,7 @@ export const services: ServiceData[] = [
     title: "Porch Construction",
     subtitle: "Porches, entries, coverings, and exterior living upgrades",
     price: "Free Estimate",
-    image: "/services/Pergola_Construction.png",
+    image: "/gallery/construction-services-gallery-03.jpg",
     description:
       "Trust Contractors Inc builds and improves porches that enhance curb appeal and everyday use. We coordinate structural details, roofing tie-ins, railings, stairs, and finish work.",
     features: [
@@ -314,7 +314,7 @@ export const services: ServiceData[] = [
     title: "Siding Services",
     subtitle: "Exterior siding repair, replacement, and finish coordination",
     price: "Free Estimate",
-    image: "/services/Siding_Painting.png",
+    image: "/gallery/construction-services-gallery-06.jpg",
     description:
       "We repair and replace siding to protect homes and improve curb appeal. Our exterior work can be coordinated with roofing, additions, decks, porches, windows, doors, and painting.",
     features: [
@@ -360,7 +360,7 @@ export const services: ServiceData[] = [
     title: "Window and Door Replacement",
     subtitle: "Window, entry door, and exterior opening upgrades",
     price: "Free Estimate",
-    image: "/services/Siding_Painting.png",
+    image: "/gallery/construction-services-gallery-08.jpg",
     description:
       "Window and door replacement helps improve comfort, curb appeal, and weather protection. We coordinate openings, trim, siding tie-ins, and finish details as part of remodels or exterior upgrades.",
     features: [
