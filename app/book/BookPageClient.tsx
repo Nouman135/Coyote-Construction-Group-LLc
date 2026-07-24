@@ -7,8 +7,8 @@ import Footer from "@/components/Footer";
 import { LeadConnectorEmbedRedirect } from "@/components/LeadConnectorEmbedRedirect";
 import { siteConfig } from "@/lib/site-config";
 
-const BOOKING_WIDGET_ID = "JKO8uHIt0sLkXD0iDdNy";
-const BOOKING_WIDGET_URL = `https://link.adssurveys.com/widget/booking/${BOOKING_WIDGET_ID}`;
+const BOOKING_WIDGET_URL = siteConfig.gohighlevel.bookingWidgetUrl;
+const BOOKING_IFRAME_ID = siteConfig.gohighlevel.bookingWidgetIframeId;
 
 export default function BookPageClient() {
   return (
@@ -39,10 +39,11 @@ export default function BookPageClient() {
             <div className="overflow-hidden rounded-lg border border-border bg-card shadow-[0_18px_45px_-30px_hsl(var(--accent)/0.65)]">
               <iframe
                 src={BOOKING_WIDGET_URL}
-                id={`${BOOKING_WIDGET_ID}_1782260846160`}
-                title="Trust Contractors appointment booking calendar"
+                id={BOOKING_IFRAME_ID}
+                title={`${siteConfig.brand} appointment booking calendar`}
                 className="block min-h-[760px] w-full border-0"
                 scrolling="no"
+                style={{ width: "100%", border: "none", overflow: "hidden" }}
               />
             </div>
           </div>

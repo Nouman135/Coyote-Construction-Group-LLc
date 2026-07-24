@@ -7,39 +7,33 @@ import { siteConfig } from "@/lib/site-config";
 const reasons = [
   {
     icon: ShieldCheck,
-    title: "Licensed, Bonded, and Insured",
+    title: "Licensed & Insured",
     desc: "Projects are handled by an experienced team with the protections homeowners expect.",
-    accent: "primary" as const,
   },
   {
     icon: Award,
-    title: "All Work Guaranteed",
-    desc: "We stand behind the construction, remodeling, and exterior work we complete.",
-    accent: "primary" as const,
+    title: "Quality Craftsmanship",
+    desc: "We stand behind the roofing, remodeling, and renovation work we complete.",
   },
   {
     icon: BadgeCheck,
     title: "Free Estimates",
     desc: "Every project starts with a free in-person estimate and practical next-step guidance.",
-    accent: "secondary" as const,
   },
   {
     icon: Clock,
-    title: "Fast Response",
-    desc: "New inquiries are handled quickly, with estimates typically completed within 3 days.",
-    accent: "primary" as const,
+    title: "Next-Day Estimates",
+    desc: "In-person estimates are typically completed by the next business day.",
   },
   {
     icon: DollarSign,
-    title: "Budget-Friendly Solutions",
-    desc: "Clear scopes and realistic recommendations help keep projects aligned with the budget.",
-    accent: "secondary" as const,
+    title: "Clear Project Scopes",
+    desc: "Transparent recommendations help keep projects aligned with your budget and goals.",
   },
   {
     icon: Users,
-    title: "Owner-Led Estimates",
-    desc: "Jean Oliveira personally handles estimates so expectations are clear from the beginning.",
-    accent: "primary" as const,
+    title: "Owner-Led Service",
+    desc: `${siteConfig.ownerName} personally handles estimates so expectations are clear from the beginning.`,
   },
 ];
 
@@ -54,7 +48,7 @@ const WhyChooseUs = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block text-primary text-sm font-bold uppercase tracking-widest mb-3"
+            className="section-badge mb-4 border-primary/30 bg-primary/15 text-primary"
           >
             Why Homeowners Choose Us
           </motion.span>
@@ -62,9 +56,9 @@ const WhyChooseUs = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-heading text-4xl md:text-5xl lg:text-6xl text-accent-foreground mb-4 tracking-tight font-bold"
+            className="font-heading text-4xl md:text-5xl lg:text-6xl text-accent-foreground mb-4 tracking-tight font-extrabold"
           >
-            Over 20 Years of Reliable Work
+            10 Years of Reliable Work
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -73,7 +67,7 @@ const WhyChooseUs = () => {
             transition={{ delay: 0.1 }}
             className="text-accent-foreground/80 max-w-2xl mx-auto text-lg"
           >
-            {siteConfig.brand} serves Greater Boston homeowners with new construction, additions, remodeling, roofing, and general contracting.
+            {siteConfig.brand} serves Hartford-area homeowners with roofing, kitchen and bathroom remodels, basement finishing, renovations, and general contracting.
           </motion.p>
         </div>
 
@@ -85,15 +79,9 @@ const WhyChooseUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className={`glass-card rounded-lg p-6 md:p-8 card-hover-lift ${
-                i === 0 ? "sm:col-span-2 lg:col-span-1" : ""
-              }`}
+              className="glass-card rounded-2xl p-6 md:p-8 card-hover-lift"
             >
-              <div className={`inline-flex items-center justify-center h-14 w-14 rounded-lg mb-5 ${
-                reason.accent === "secondary"
-                  ? "bg-primary/20 text-primary"
-                  : "bg-primary/20 text-primary"
-              }`}>
+              <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl mb-5 bg-primary/20 text-primary">
                 <reason.icon className="h-7 w-7" />
               </div>
               <h3 className="font-heading text-xl text-accent-foreground mb-2 tracking-tight font-bold">{reason.title}</h3>

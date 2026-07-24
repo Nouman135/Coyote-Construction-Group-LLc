@@ -1,98 +1,81 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { ShieldCheck, Star, Clock, BadgeCheck } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 
-const DEFAULT_IFRAME_HEIGHT = 720;
+const highlights = [
+  {
+    icon: ShieldCheck,
+    title: "Licensed & Insured",
+    desc: "Professional roofing and remodeling work backed by the standards homeowners expect.",
+  },
+  {
+    icon: Star,
+    title: "Quality First",
+    desc: "Every project is handled with careful planning, clean execution, and strong finish details.",
+  },
+  {
+    icon: Clock,
+    title: "Next-Day Estimates",
+    desc: "Free in-person estimates are typically completed by the next business day.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Owner Involvement",
+    desc: `${siteConfig.ownerName} personally handles estimates and keeps communication direct.`,
+  },
+];
 
 const ReviewWidget = () => {
-  const [iframeKey, setIframeKey] = useState(0);
-  const [iframeHeight, setIframeHeight] = useState(DEFAULT_IFRAME_HEIGHT);
-
-  useEffect(() => {
-    const scriptSrc = siteConfig.reputationHub.reviewWidgetScriptSrc;
-    const existingScript = document.querySelector<HTMLScriptElement>(`script[src="${scriptSrc}"]`);
-
-    const mountIframe = () => {
-      setIframeKey((current) => current + 1);
-    };
-
-    if (existingScript) {
-      mountIframe();
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.src = scriptSrc;
-    script.async = true;
-    script.onload = mountIframe;
-    document.body.appendChild(script);
-
-    return () => {
-      script.onload = null;
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleMessage = (event: MessageEvent) => {
-      if (!Array.isArray(event.data) || event.data[0] !== "lc.setHeight") {
-        return;
-      }
-
-      const data = event.data[1];
-      if (data?.id !== "lc_reviews_widget" || !data?.height) {
-        return;
-      }
-
-      setIframeHeight(Number(data.height));
-    };
-
-    window.addEventListener("message", handleMessage);
-    return () => window.removeEventListener("message", handleMessage);
-  }, []);
-
   return (
-    <section className="section-padding bg-[linear-gradient(180deg,hsl(var(--background))_0%,hsl(var(--primary)/0.05)_100%)]">
+    <section className="section-padding bg-[linear-gradient(180deg,hsl(var(--background))_0%,hsl(var(--primary)/0.04)_100%)]">
       <div className="container-max">
-        <div className="text-center mb-10">
+        <div className="text-center mb-12">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block text-secondary text-sm font-bold uppercase tracking-widest mb-3"
+            className="section-badge mb-4"
           >
-            Google Business Profile
+            Our Commitment
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-heading text-4xl md:text-5xl text-foreground mb-4 tracking-tight font-bold"
+            className="font-heading text-4xl md:text-5xl text-foreground mb-4 tracking-tight font-extrabold"
           >
-            Trusted Around Greater Boston
+            Built on Trust & Craftsmanship
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-muted-foreground max-w-2xl mx-auto text-lg"
+          >
+            {siteConfig.brand} is building its reputation one project at a time across the Hartford area with roofing, remodeling, and renovation work homeowners can count on.
+          </motion.p>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto w-full"
-          style={{ minHeight: iframeHeight }}
-        >
-          <iframe
-            key={iframeKey}
-            className="lc_reviews_widget"
-            src={siteConfig.reputationHub.reviewWidgetIframeSrc}
-            frameBorder="0"
-            scrolling="no"
-            title="Trust Contractors Inc reviews"
-            height={iframeHeight}
-            style={{ minWidth: "100%", width: "100%", border: "none" }}
-          />
-        </motion.div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+          {highlights.map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+              className="bento-card text-center card-hover-lift"
+            >
+              <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-primary/10 text-primary mb-4">
+                <item.icon className="h-7 w-7" />
+              </div>
+              <h3 className="font-heading text-lg font-bold text-foreground mb-2">{item.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

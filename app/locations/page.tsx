@@ -23,17 +23,17 @@ export default function LocationsPage() {
         <section className="relative h-[42vh] md:h-[52vh] overflow-hidden">
           <img
             src={siteConfig.assets.heroImage}
-            alt="Trust Contractors Inc service locations"
+            alt={`${siteConfig.brand} service locations`}
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(222_62%_12%/.88)_0%,hsl(58_94%_51%/.22)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(222_35%_8%/.88)_0%,hsl(24_95%_53%/.22)_100%)]" />
           <div className="relative z-10 flex items-center justify-center h-full text-center px-4">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl text-white mb-4 tracking-wide font-bold">
                 Service Locations
               </h1>
               <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
-                Cities and communities we serve within about {siteConfig.serviceRadiusMiles} miles across Greater Boston.
+                Cities and communities we serve within about {siteConfig.serviceRadiusMiles} miles across Hartford and surrounding Connecticut.
               </p>
             </motion.div>
           </div>

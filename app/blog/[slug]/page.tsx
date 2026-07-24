@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CalendarDays, User, ArrowLeft } from "lucide-react";
 import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/blog-store";
+import { siteConfig } from "@/lib/site-config";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -24,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getBlogPostBySlug(slug);
   if (!post) return {};
   return {
-    title: `${post.title} | Trust Contractors Inc`,
+    title: `${post.title} | ${siteConfig.brand}`,
     description: post.excerpt,
     openGraph: {
       title: post.title,

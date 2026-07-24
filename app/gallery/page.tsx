@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -22,10 +22,10 @@ export default function GalleryPage() {
         <section className="relative overflow-hidden">
           <img
             src={siteConfig.assets.heroImage}
-            alt="Trust Contractors Inc gallery hero"
+            alt={`${siteConfig.brand} gallery hero`}
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(222_62%_12%/.88)_0%,hsl(58_94%_51%/.22)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(222_35%_8%/.88)_0%,hsl(24_95%_53%/.22)_100%)]" />
           <div className="absolute inset-0 gradient-mesh opacity-25" />
           <div className="relative z-10 flex items-center justify-center h-[38vh] md:h-[46vh] text-center px-4">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
@@ -62,14 +62,9 @@ export default function GalleryPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" onClick={openQuoteForm} className="gap-2">
+              <Button size="lg" onClick={openQuoteForm} className="gap-2 rounded-xl">
                 Request Free Estimate <ArrowRight className="h-5 w-5" />
               </Button>
-              <a href={siteConfig.legacyGalleryUrl} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="outline" className="gap-2 text-foreground border-foreground/20 hover:bg-foreground/5 hover:text-foreground">
-                  View gallery <ExternalLink className="h-5 w-5" />
-                </Button>
-              </a>
             </div>
           </div>
         </section>

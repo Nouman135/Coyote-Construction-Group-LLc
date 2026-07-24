@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: `Thank You | ${siteConfig.brand}`,
   description:
-    "Your appointment with Trust Contractors Inc has been scheduled. We look forward to speaking with you.",
+    "Your appointment with Fixon Construction has been scheduled. We look forward to speaking with you.",
   robots: {
     index: false,
     follow: false,

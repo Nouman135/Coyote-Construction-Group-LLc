@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { getAllBlogPosts } from "@/lib/blog-store";
+import { siteConfig } from "@/lib/site-config";
 import BlogPageClient from "./BlogPageClient";
 
 export const metadata: Metadata = {
-  title: "Blog | Trust Contractors Inc",
-  description: "Construction and remodeling insights from Trust Contractors Inc in Greater Boston.",
+  title: `Blog | ${siteConfig.brand}`,
+  description: `Roofing and remodeling insights from ${siteConfig.brand} in the Hartford area.`,
 };
 
 export default function BlogPage() {

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, CheckCircle, ExternalLink, Phone } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { ServiceData } from "@/lib/services-data";
 import { useQuoteForm } from "@/components/QuoteFormContext";
@@ -23,7 +23,7 @@ const ServicePageLayout = ({ service }: Props) => {
           className="absolute inset-0 w-full h-full object-cover object-center"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(222_62%_12%/.86)_0%,hsl(58_94%_51%/.22)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(222_35%_8%/.86)_0%,hsl(24_95%_53%/.22)_100%)]" />
         <div className="relative z-10 container-max px-4 pb-10 md:pb-14 w-full">
           <Link
             href="/services"
@@ -100,11 +100,11 @@ const ServicePageLayout = ({ service }: Props) => {
               <Button variant="default" className="w-full mb-3 gap-2" onClick={openQuoteForm}>
                 Request Free Estimate <ArrowRight className="h-4 w-4" />
               </Button>
-              <a href={siteConfig.legacyServicesUrl} target="_blank" rel="noopener noreferrer" className="block mb-3">
+              <Link href="/services" className="block mb-3">
                 <Button variant="outline" className="w-full gap-2 bg-white text-foreground border-foreground/20 hover:bg-white/90 hover:text-foreground">
-                  View All Services <ExternalLink className="h-4 w-4" />
+                  View All Services <ArrowRight className="h-4 w-4" />
                 </Button>
-              </a>
+              </Link>
               <a href={`tel:${siteConfig.primaryPhoneRaw}`}>
                 <Button variant="outline" className="w-full gap-2">
                   <Phone className="h-4 w-4" /> {siteConfig.primaryPhoneDisplay}

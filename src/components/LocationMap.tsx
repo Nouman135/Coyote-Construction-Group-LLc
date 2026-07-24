@@ -43,8 +43,8 @@ const LocationMap = () => {
 
       L.circle([mainLocation.lat, mainLocation.lng], {
         radius: radiusMeters,
-        color: "#1D3A7C",
-        fillColor: "#F8F10E",
+        color: "#1F2937",
+        fillColor: "#F97316",
         fillOpacity: 0.08,
         weight: 2,
         dashArray: "8 4",
@@ -52,8 +52,8 @@ const LocationMap = () => {
 
       const primaryIcon = L.divIcon({
         className: "custom-marker-primary",
-        html: `<div style="background:#1D3A7C;width:32px;height:32px;border-radius:50%;border:3px solid #F8F10E;box-shadow:0 2px 8px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="#F8F10E"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+        html: `<div style="background:#1F2937;width:32px;height:32px;border-radius:50%;border:3px solid #F97316;box-shadow:0 2px 8px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#F97316"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
         </div>`,
         iconSize: [32, 32],
         iconAnchor: [16, 16],
@@ -61,7 +61,7 @@ const LocationMap = () => {
 
       const cityIcon = L.divIcon({
         className: "custom-marker-city",
-        html: `<div style="background:#1D3A7C;width:16px;height:16px;border-radius:50%;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.2);"></div>`,
+        html: `<div style="background:#1F2937;width:16px;height:16px;border-radius:50%;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.2);"></div>`,
         iconSize: [18, 18],
         iconAnchor: [9, 9],
       });
@@ -181,7 +181,7 @@ const LocationMap = () => {
                   >
                     <div className="px-5 pb-3">
                       <p className="text-muted-foreground text-xs leading-relaxed mb-2">
-                        Construction, additions, remodeling, and exterior services available in {city.name}.
+                        Roofing, remodeling, and renovation services available in {city.name}.
                       </p>
                       <Link href={`/locations/${city.slug}`}>
                         <Button size="sm" variant="outline" className="w-full text-xs">
