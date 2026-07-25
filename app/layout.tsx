@@ -11,14 +11,29 @@ import { SiteProviders } from "./providers";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: siteConfig.brand,
+  metadataBase: new URL(siteConfig.domain),
+  title: {
+    default: `${siteConfig.brand} | Remodeling, Roofing & New Construction`,
+    template: `%s | ${siteConfig.brand}`,
+  },
   description: siteConfig.seo.defaultDescription,
   icons: {
     icon: [
-      { url: siteConfig.assets.favicon, type: "image/png" },
+      { url: "/favicon.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
-    apple: siteConfig.assets.favicon,
-    shortcut: siteConfig.assets.favicon,
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.png",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.domain,
+    siteName: siteConfig.brand,
+    title: `${siteConfig.brand} | Remodeling, Roofing & New Construction`,
+    description: siteConfig.seo.defaultDescription,
+    images: [{ url: siteConfig.assets.ogImage }],
   },
 };
 

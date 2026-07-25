@@ -38,7 +38,7 @@ function toBlogPost(stored: StoredBlogPost): BlogPost {
     title: stored.title,
     excerpt: stored.description,
     date: formatDisplayDate(stored.createdAt),
-    author: stored.author || "Fixon Construction",
+    author: stored.author || "Coyote Construction Group",
     cardImage: stored.imageUrl,
     heroImage: stored.imageUrl,
     images: [],

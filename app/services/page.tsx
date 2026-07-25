@@ -30,7 +30,7 @@ export default function ServicesPage() {
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <h1 className="font-heading text-5xl md:text-6xl text-white mb-3 tracking-wide font-bold">Services</h1>
               <p className="text-white/80 max-w-2xl mx-auto">
-                Roofing, kitchen and bathroom remodels, basement finishing, renovations, and general contracting across the Hartford area.
+                Remodeling, roofing, new construction, renovations, and general contracting across the Dallas–Fort Worth metroplex.
               </p>
             </motion.div>
           </div>

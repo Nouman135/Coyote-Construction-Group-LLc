@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { useQuoteForm } from "@/components/QuoteFormContext";
 import { siteConfig } from "@/lib/site-config";
 
-const logoClassName = "h-10 md:h-11 w-auto max-w-[200px] object-contain";
+const logoClassName = "h-11 md:h-12 w-auto max-w-[240px] object-contain";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -71,7 +71,7 @@ const location = usePathname();
         }`}
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-border">
-          <Link href="/" className="block max-w-[200px] rounded-lg bg-white px-2 py-1" onClick={() => setOpen(false)}>
+          <Link href="/" className="block max-w-[200px] rounded-lg overflow-hidden" onClick={() => setOpen(false)}>
             <img src={siteConfig.assets.logo} alt={siteConfig.brand} className={logoClassName} />
           </Link>
           <button onClick={() => setOpen(false)} className="p-1 text-foreground/90 hover:text-secondary">
@@ -146,7 +146,7 @@ const location = usePathname();
     <>
       <nav className="sticky top-0 z-[120] bg-white/80 backdrop-blur-xl shadow-[0_10px_35px_-18px_hsl(var(--accent)/0.45)] border-b border-border/60">
         <div className="container-max flex items-center justify-between px-4 py-2.5">
-          <Link href="/" className="block rounded-lg bg-white px-2 py-1">
+          <Link href="/" className="block rounded-lg overflow-hidden">
             <img src={siteConfig.assets.logo} alt={siteConfig.brand} className={logoClassName} />
           </Link>
           <ul className="hidden md:flex items-center gap-6">

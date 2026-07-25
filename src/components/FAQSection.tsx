@@ -7,20 +7,23 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
-import { siteConfig } from "@/lib/site-config";
+import { serviceAreaLabel, siteConfig } from "@/lib/site-config";
+import { targetCities } from "@/lib/locations-data";
+
+const cityList = targetCities.map((c) => c.name).join(", ");
 
 const faqs = [
   {
     q: "Do you offer free estimates?",
-    a: `Yes. ${siteConfig.brand} offers free in-person estimates. ${siteConfig.ownerName} personally handles estimates, and they are typically completed by the next business day.`,
+    a: `Yes. ${siteConfig.brand} offers free virtual estimates. Our sales team handles estimates, and they are typically completed within 48–72 hours.`,
   },
   {
     q: "Which services do you prioritize?",
-    a: "Our priority services are roofing, kitchen remodeling, and bathroom remodeling. We also handle basement finishing, home renovations, and general contracting.",
+    a: "Our priority services are remodeling and roofing. We also handle new construction, renovations, and general contracting.",
   },
   {
     q: "Which areas do you serve?",
-    a: `We serve Hartford, CT and surrounding communities within about ${siteConfig.serviceRadiusMiles} miles, including West Hartford, East Hartford, New Britain, Bristol, Manchester, Windsor, Glastonbury, Wethersfield, Farmington, Southington, Middletown, Enfield, Vernon, and Bloomfield.`,
+    a: `We serve ${serviceAreaLabel} within about ${siteConfig.serviceRadiusMiles} miles, including ${cityList}.`,
   },
   {
     q: "What is your minimum job size?",
@@ -28,7 +31,7 @@ const faqs = [
   },
   {
     q: "What types of jobs do you not take?",
-    a: "We focus on roofing, remodeling, basement finishing, renovations, and general contracting. We do not take smaller jobs or standalone electrical work.",
+    a: "We focus on high-value remodeling, roofing, new construction, renovations, and general contracting. We do not take small repair jobs.",
   },
   {
     q: "Do you offer financing?",

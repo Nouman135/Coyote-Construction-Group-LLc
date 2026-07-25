@@ -4,16 +4,19 @@ import Link from "next/link";
 import { ArrowRight, Clock, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useQuoteForm } from "@/components/QuoteFormContext";
-import { siteConfig } from "@/lib/site-config";
+import { formattedAddress, serviceAreaLabel, siteConfig } from "@/lib/site-config";
+import { services } from "@/lib/services-data";
 
-const logoClassName = "h-10 w-auto max-w-[200px] object-contain";
+const logoClassName = "h-11 w-auto max-w-[240px] object-contain";
+
+const priorityServices = services.filter((s) => s.priority);
 
 const Footer = () => {
   const { openQuoteForm } = useQuoteForm();
 
   return (
     <footer className="text-accent-foreground bg-[linear-gradient(180deg,hsl(var(--accent))_0%,hsl(var(--accent-dark))_100%)]">
-      <div className="bg-[linear-gradient(120deg,hsl(var(--primary))_0%,hsl(32_100%_58%)_100%)] relative overflow-hidden">
+      <div className="bg-[linear-gradient(120deg,hsl(var(--primary))_0%,hsl(32_90%_52%)_100%)] relative overflow-hidden">
         <div className="absolute inset-0 gradient-mesh opacity-25" />
         <div className="container-max px-4 py-12 md:py-16 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -22,7 +25,7 @@ const Footer = () => {
                 Start Your Project with a Free Estimate
               </h3>
               <p className="text-primary-foreground/85 text-sm mt-2 max-w-xl">
-                Roofing, kitchen and bathroom remodels, basement finishing, renovations, and general contracting across Hartford and surrounding areas.
+                Remodeling, roofing, new construction, renovations, and general contracting across {serviceAreaLabel}.
               </p>
             </div>
             <div className="flex gap-3">
@@ -51,7 +54,7 @@ const Footer = () => {
       <div className="container-max section-padding">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <div className="mb-4 inline-block rounded-lg bg-white px-2 py-1">
+            <div className="mb-4 inline-block rounded-lg overflow-hidden">
               <img
                 src={siteConfig.assets.logo}
                 alt={siteConfig.brand}
@@ -59,7 +62,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-accent-foreground/80 text-sm leading-relaxed">
-              {siteConfig.brand} has served the Hartford area for {siteConfig.yearsInBusiness} with roofing, kitchen and bathroom remodels, basement finishing, renovations, and general contracting.
+              {siteConfig.brand} provides remodeling, roofing, new construction, renovations, and general contracting across the Dallas–Fort Worth metroplex.
             </p>
             <div className="mt-4 bg-primary/10 border border-primary/25 rounded-xl px-4 py-3">
               <p className="text-primary font-semibold text-sm">
@@ -97,19 +100,18 @@ const Footer = () => {
               Priority Services
             </h4>
             <ul className="space-y-2.5 text-sm text-accent-foreground/80">
-              {[
-                { label: "Roofing Services", to: "/services/roofing-services" },
-                { label: "Kitchen Remodeling", to: "/services/kitchen-remodeling" },
-                { label: "Bathroom Remodeling", to: "/services/bathroom-remodeling" },
-                { label: "Basement Finishing", to: "/services/basement-remodeling" },
-                { label: "General Contracting", to: "/services/general-contracting" },
-              ].map((link) => (
-                <li key={link.label}>
-                  <Link href={link.to} className="footer-link-underline hover:text-primary transition-colors">
-                    {link.label}
+              {priorityServices.map((service) => (
+                <li key={service.slug}>
+                  <Link href={`/services/${service.slug}`} className="footer-link-underline hover:text-primary transition-colors">
+                    {service.title}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/services/general-contracting" className="footer-link-underline hover:text-primary transition-colors">
+                  General Contracting
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -130,9 +132,9 @@ const Footer = () => {
                 <Clock className="h-4 w-4 shrink-0 text-primary" />
                 {siteConfig.serviceHours.weekdays}
               </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 shrink-0 text-primary" />
-                Hartford, CT and surrounding areas
+              <li className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 shrink-0 text-primary mt-0.5" />
+                <span>{formattedAddress}</span>
               </li>
             </ul>
           </div>
@@ -140,9 +142,9 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-accent-foreground/20 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-accent-foreground/85 text-xs">
-            Copyright {new Date().getFullYear()} {siteConfig.brand}. All rights reserved.
+            Copyright {new Date().getFullYear()} {siteConfig.officialName}. All rights reserved.
           </p>
-          <span className="text-accent-foreground/80 text-xs">Serving the Hartford area for {siteConfig.yearsInBusiness}</span>
+          <span className="text-accent-foreground/80 text-xs">Serving {serviceAreaLabel}</span>
         </div>
       </div>
     </footer>

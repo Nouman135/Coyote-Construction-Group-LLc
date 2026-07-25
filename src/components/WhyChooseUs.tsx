@@ -2,38 +2,38 @@
 
 import { motion } from "framer-motion";
 import { Award, BadgeCheck, Clock, DollarSign, ShieldCheck, Users } from "lucide-react";
-import { siteConfig } from "@/lib/site-config";
+import { serviceAreaLabel, siteConfig } from "@/lib/site-config";
 
 const reasons = [
   {
     icon: ShieldCheck,
-    title: "Licensed & Insured",
-    desc: "Projects are handled by an experienced team with the protections homeowners expect.",
+    title: "Restoration-Informed Builds",
+    desc: "We understand how homes fail, how storms damage structures, and how to rebuild properly.",
   },
   {
     icon: Award,
-    title: "Quality Craftsmanship",
-    desc: "We stand behind the roofing, remodeling, and renovation work we complete.",
+    title: "High-Value Projects",
+    desc: "We focus on remodeling, roofing, and new construction — not small repair jobs.",
   },
   {
     icon: BadgeCheck,
-    title: "Free Estimates",
-    desc: "Every project starts with a free in-person estimate and practical next-step guidance.",
+    title: "Free Virtual Estimates",
+    desc: "Every project starts with a free virtual estimate and clear next-step guidance.",
   },
   {
     icon: Clock,
-    title: "Next-Day Estimates",
-    desc: "In-person estimates are typically completed by the next business day.",
+    title: "Same-Day Response",
+    desc: "New inquiries receive a same-day response from our dedicated sales team.",
   },
   {
     icon: DollarSign,
     title: "Clear Project Scopes",
-    desc: "Transparent recommendations help keep projects aligned with your budget and goals.",
+    desc: `Transparent recommendations for projects from ${siteConfig.minimumJobSize} to ${siteConfig.idealJobSize}+.`,
   },
   {
     icon: Users,
-    title: "Owner-Led Service",
-    desc: `${siteConfig.ownerName} personally handles estimates so expectations are clear from the beginning.`,
+    title: "Dedicated Sales Team",
+    desc: "Experienced sales reps handle estimates and keep expectations clear from day one.",
   },
 ];
 
@@ -50,7 +50,7 @@ const WhyChooseUs = () => {
             viewport={{ once: true }}
             className="section-badge mb-4 border-primary/30 bg-primary/15 text-primary"
           >
-            Why Homeowners Choose Us
+            Why Property Owners Choose Us
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ const WhyChooseUs = () => {
             viewport={{ once: true }}
             className="font-heading text-4xl md:text-5xl lg:text-6xl text-accent-foreground mb-4 tracking-tight font-extrabold"
           >
-            10 Years of Reliable Work
+            Built for High-Value Projects
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -67,7 +67,7 @@ const WhyChooseUs = () => {
             transition={{ delay: 0.1 }}
             className="text-accent-foreground/80 max-w-2xl mx-auto text-lg"
           >
-            {siteConfig.brand} serves Hartford-area homeowners with roofing, kitchen and bathroom remodels, basement finishing, renovations, and general contracting.
+            {siteConfig.brand} serves {serviceAreaLabel} with remodeling, roofing, new construction, renovations, and general contracting backed by real restoration experience.
           </motion.p>
         </div>
 

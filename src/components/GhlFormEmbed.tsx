@@ -9,7 +9,7 @@ interface GhlFormEmbedProps {
   height?: number;
 }
 
-const GhlFormEmbed = ({ className, height = 739 }: GhlFormEmbedProps) => {
+const GhlFormEmbed = ({ className, height = 745 }: GhlFormEmbedProps) => {
   const formId = siteConfig.gohighlevel.inlineFormId;
 
   return (

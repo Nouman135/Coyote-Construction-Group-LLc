@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" fill="none">
+  <rect x="2" y="6" width="36" height="36" rx="10" fill="#C45A1A"/>
+  <path d="M12 28c2-6 6-10 10-10s8 4 10 10" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="18" cy="22" r="2" fill="#fff"/>
+  <circle cx="26" cy="22" r="2" fill="#fff"/>
+  <text x="48" y="22" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="16" font-weight="800" fill="#1A2332">COYOTE</text>
+  <text x="48" y="38" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="10" font-weight="600" fill="#64748B" letter-spacing="0.12em">CONSTRUCTION GROUP</text>
+</svg>

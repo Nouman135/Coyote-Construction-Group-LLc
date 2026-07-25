@@ -6,6 +6,7 @@ import { services } from "@/lib/services-data";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useQuoteForm } from "@/components/QuoteFormContext";
+import { serviceAreaLabel } from "@/lib/site-config";
 
 const ServicesSection = () => {
   const { openQuoteForm } = useQuoteForm();
@@ -23,7 +24,7 @@ const ServicesSection = () => {
             viewport={{ once: true }}
             className="section-badge mb-4"
           >
-            Services
+            Core Services
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -31,7 +32,7 @@ const ServicesSection = () => {
             viewport={{ once: true }}
             className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-4 tracking-tight font-extrabold"
           >
-            Roofing, Remodeling & Renovations
+            Built for High-Value Projects
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -40,7 +41,7 @@ const ServicesSection = () => {
             transition={{ delay: 0.1 }}
             className="text-muted-foreground max-w-2xl mx-auto text-lg"
           >
-            Priority services include roofing, kitchen and bathroom remodels, basement finishing, home renovations, and general contracting across the Hartford area.
+            Priority services include remodeling and roofing, plus new construction, renovations, and general contracting across {serviceAreaLabel}.
           </motion.p>
         </div>
 
@@ -62,7 +63,7 @@ const ServicesSection = () => {
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,hsl(0_0%_0%/0.05)_0%,hsl(222_35%_8%/0.82)_100%)]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,hsl(0_0%_0%/0.05)_0%,hsl(220_30%_8%/0.82)_100%)]" />
 
                   <div className="absolute top-4 left-4 right-4 z-10 flex items-start justify-between gap-2">
                     {service.priority && (

@@ -5,7 +5,7 @@ import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Award, CheckCircle, Heart, Users } from "lucide-react";
-import { siteConfig } from "@/lib/site-config";
+import { formattedAddress, serviceAreaLabel, siteConfig } from "@/lib/site-config";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const About = () => {
@@ -22,7 +22,7 @@ const About = () => {
             className="absolute inset-0 w-full h-full object-cover"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(222_35%_8%/.88)_0%,hsl(24_95%_53%/.22)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,hsl(220_30%_6%/.88)_0%,hsl(22_78%_46%/.24)_100%)]" />
           <div className="relative z-10 flex items-center justify-center h-full text-center px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -33,7 +33,7 @@ const About = () => {
                 About {siteConfig.brand}
               </h1>
               <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
-                Built on trust, craftsmanship, and reliable service across the Hartford area for {siteConfig.yearsInBusiness}.
+                Restoration-informed construction across {serviceAreaLabel}.
               </p>
             </motion.div>
           </div>
@@ -51,13 +51,13 @@ const About = () => {
                 Our Story
               </h2>
               <p className="text-foreground/80 leading-relaxed mb-4">
-                {siteConfig.brand} has provided quality roofing, remodeling, and renovation services to homeowners in Hartford and surrounding Connecticut communities for {siteConfig.yearsInBusiness}.
+                {siteConfig.brand} provides remodeling, roofing, new construction, renovations, and general contracting to homeowners and property owners across the Dallas–Fort Worth metroplex.
               </p>
               <p className="text-foreground/80 leading-relaxed mb-4">
-                CEO {siteConfig.ownerName} personally handles estimates, giving clients direct guidance before a project begins and clear communication as the scope takes shape.
+                Our restoration background makes us better builders. We understand how homes fail, how water and storms damage structures, and how to rebuild properly — giving clients a stronger construction partner for high-value projects.
               </p>
               <p className="text-foreground/80 leading-relaxed mb-6">
-                The company focuses on roofing, kitchen and bathroom remodels, basement finishing, home renovations, and general contracting for projects that fit our scope and quality standards.
+                Led by CEO {siteConfig.ownerName}, our team of {siteConfig.employeeCount} professionals focuses on remodeling, roofing, and new construction for projects starting at {siteConfig.minimumJobSize}, with ideal projects around {siteConfig.idealJobSize}.
               </p>
             </motion.div>
           </div>
@@ -71,9 +71,9 @@ const About = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 { icon: CheckCircle, title: "Quality First", desc: "All work is completed with careful execution and detail-focused craftsmanship." },
-                { icon: Users, title: "Owner Involved", desc: `${siteConfig.ownerName} personally handles estimates and keeps expectations clear.` },
-                { icon: Award, title: "Experienced Team", desc: `${siteConfig.yearsInBusiness} of roofing, remodeling, and renovation experience.` },
-                { icon: Heart, title: "Local Commitment", desc: "Serving Hartford-area homeowners with reliability and pride in the work." },
+                { icon: Users, title: "Sales Team Support", desc: "Dedicated sales reps handle estimates and keep expectations clear from day one." },
+                { icon: Award, title: "Restoration Expertise", desc: "Real restoration experience that informs every roofing and construction project." },
+                { icon: Heart, title: "Local Commitment", desc: `Serving ${serviceAreaLabel} with reliability and pride in the work.` },
               ].map((item, i) => (
                 <motion.div
                   key={item.title}
@@ -109,7 +109,7 @@ const About = () => {
                   <h3 className="font-heading text-2xl text-foreground tracking-tight font-bold">Our Mission</h3>
                 </div>
                 <p className="text-foreground/80 leading-relaxed">
-                  Deliver dependable roofing and remodeling solutions that improve homes, protect budgets, and keep clients informed from estimate through completion.
+                  Deliver dependable remodeling, roofing, and new construction solutions that improve properties, protect budgets, and keep clients informed from estimate through completion.
                 </p>
               </motion.div>
               <motion.div
@@ -126,7 +126,7 @@ const About = () => {
                   <h3 className="font-heading text-2xl text-foreground tracking-tight font-bold">Our Vision</h3>
                 </div>
                 <p className="text-foreground/80 leading-relaxed">
-                  Be the trusted name for roofing, kitchen and bathroom remodels, and basement finishing in the Hartford area.
+                  Be the trusted name for remodeling, roofing, and new construction across North Richland Hills and the DFW metroplex.
                 </p>
               </motion.div>
             </div>
@@ -145,13 +145,13 @@ const About = () => {
                 Our Promise
               </h2>
               <p className="text-foreground/80 leading-relaxed mb-4">
-                We provide free in-person estimates, transparent project scopes, and high standards from start to finish.
+                We provide free virtual estimates, transparent project scopes, and high standards from start to finish.
               </p>
               <p className="text-foreground/80 leading-relaxed mb-4">
-                Whether you need roofing, a kitchen or bathroom remodel, basement finishing, a home renovation, or general contracting, your project gets the same quality commitment.
+                Whether you need a remodel, roof replacement, new construction, renovation, or general contracting, your project gets the same quality commitment.
               </p>
               <p className="text-foreground/80 leading-relaxed">
-                Our goal is simple: excellent work, strong communication, and results you can trust.
+                Visit us at {formattedAddress}, or call {siteConfig.primaryPhoneDisplay} to schedule your free estimate.
               </p>
             </motion.div>
           </div>

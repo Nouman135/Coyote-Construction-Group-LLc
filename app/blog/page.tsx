@@ -5,7 +5,7 @@ import BlogPageClient from "./BlogPageClient";
 
 export const metadata: Metadata = {
   title: `Blog | ${siteConfig.brand}`,
-  description: `Roofing and remodeling insights from ${siteConfig.brand} in the Hartford area.`,
+  description: `Remodeling, roofing, and construction insights from ${siteConfig.brand} in the DFW metroplex.`,
 };
 
 export default function BlogPage() {

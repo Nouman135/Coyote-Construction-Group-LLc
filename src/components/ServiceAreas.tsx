@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, MapPin, ShieldCheck, Star, Clock } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import { useQuoteForm } from "@/components/QuoteFormContext";
 import { locations } from "@/lib/locations-data";
 import { Button } from "@/components/ui/button";
 import LocationMap from "@/components/LocationMap";
-import { siteConfig } from "@/lib/site-config";
+import { serviceAreaLabel, siteConfig } from "@/lib/site-config";
 
 const ServiceAreas = () => {
   const { openQuoteForm } = useQuoteForm();
@@ -34,7 +34,7 @@ const ServiceAreas = () => {
             viewport={{ once: true }}
             className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-4 tracking-tight font-extrabold"
           >
-            Hartford Area Service Areas
+            Serving Fort Worth & North Texas
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -43,7 +43,7 @@ const ServiceAreas = () => {
             transition={{ delay: 0.1 }}
             className="text-muted-foreground max-w-xl mx-auto text-lg"
           >
-            Service available within about {siteConfig.serviceRadiusMiles} miles across Hartford and surrounding Connecticut communities.
+            Service available within about {siteConfig.serviceRadiusMiles} miles across {serviceAreaLabel}.
           </motion.p>
         </div>
 

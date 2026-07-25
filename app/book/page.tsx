@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: `Book an Appointment | ${siteConfig.brand}`,
   description:
-    "Schedule an appointment with Fixon Construction for roofing, kitchen and bathroom remodels, basement finishing, renovations, and general contracting.",
+    `Schedule an appointment with ${siteConfig.brand} for remodeling, roofing, new construction, renovations, and general contracting across the DFW metroplex.`,
 };
 
 export default function BookPage() {

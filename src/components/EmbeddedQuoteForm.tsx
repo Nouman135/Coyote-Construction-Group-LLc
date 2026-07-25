@@ -57,7 +57,7 @@ const EmbeddedQuoteForm = ({ className, height = 588, enableScroll = false }: Em
 
       toast({
         title: "Estimate Request Submitted",
-        description: "Thank you. Ronnie Costa will follow up with you shortly.",
+        description: `Thank you. A member of the ${siteConfig.brand} team will follow up with you shortly.`,
       });
       setForm(initialForm);
     } catch {

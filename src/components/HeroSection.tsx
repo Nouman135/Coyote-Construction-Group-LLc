@@ -1,39 +1,39 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, ShieldCheck, Sparkles, Star, Hammer } from "lucide-react";
+import { Phone, ShieldCheck, Sparkles, Star, Hammer, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useQuoteForm } from "@/components/QuoteFormContext";
 import GhlFormEmbed from "@/components/GhlFormEmbed";
 import { LeadConnectorEmbedRedirect } from "@/components/LeadConnectorEmbedRedirect";
-import { siteConfig } from "@/lib/site-config";
+import { serviceAreaLabel, siteConfig } from "@/lib/site-config";
 
 const badges = [
   { icon: ShieldCheck, label: "Licensed & insured" },
-  { icon: Star, label: "Quality craftsmanship" },
-  { icon: Sparkles, label: "Free in-person estimates" },
+  { icon: Star, label: "Restoration-informed builds" },
+  { icon: Sparkles, label: "Free virtual estimates" },
 ];
 
 const stats = [
-  { value: "10+", label: "Years serving Hartford area" },
-  { value: "50", label: "Mile service radius" },
-  { value: "$10K+", label: "Ideal project size" },
+  { value: `${siteConfig.employeeCount}`, label: "Team members" },
+  { value: `${siteConfig.serviceRadiusMiles}`, label: "Mile service radius" },
+  { value: siteConfig.idealJobSize, label: "Ideal project size" },
 ];
 
 const HeroSection = () => {
   const { openQuoteForm } = useQuoteForm();
 
   return (
-    <section id="home" className="relative min-h-[92vh] flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-[94vh] flex items-center overflow-hidden">
       <LeadConnectorEmbedRedirect event="form" redirectTo="/book" />
       <img
         src={siteConfig.assets.homeHeroImage}
-        alt={`${siteConfig.brand} roofing and remodeling services`}
+        alt={`${siteConfig.brand} remodeling, roofing, and new construction`}
         className="absolute inset-0 w-full h-full object-cover scale-105"
         loading="eager"
       />
-      <div className="absolute inset-0 bg-[linear-gradient(120deg,hsl(222_35%_8%/.92)_0%,hsl(222_35%_14%/.84)_55%,hsl(24_95%_53%/.18)_100%)]" />
-      <div className="absolute inset-0 gradient-mesh opacity-40" />
+      <div className="absolute inset-0 bg-[linear-gradient(125deg,hsl(220_30%_6%/.93)_0%,hsl(220_28%_14%/.86)_52%,hsl(22_78%_46%/.22)_100%)]" />
+      <div className="absolute inset-0 gradient-mesh opacity-50" />
 
       <div className="relative z-10 container-max px-4 py-24 md:py-32 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -50,25 +50,27 @@ const HeroSection = () => {
                 className="section-badge mb-8 text-white/90 border-white/20 bg-white/10"
               >
                 <Hammer className="h-4 w-4" />
-                Hartford Area Roofing & Remodeling
+                {serviceAreaLabel}
               </motion.div>
 
-              <h1 className="font-heading text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[0.95] mb-6 tracking-tight font-extrabold">
-                Build With
+              <h1 className="font-heading text-5xl md:text-6xl lg:text-[4.25rem] text-white leading-[0.98] mb-6 tracking-tight font-extrabold">
+                Remodeling, Roofing &
                 <br />
-                <span className="text-gradient-primary">Confidence</span>
+                <span className="text-gradient-primary">New Construction</span>
+                <br />
+                <span className="text-4xl md:text-5xl lg:text-[3.5rem] text-white/95">Built to Last</span>
               </h1>
               <p className="text-white/85 text-lg md:text-xl mb-8 leading-relaxed max-w-xl">
-                {siteConfig.brand} delivers roofing, kitchen and bathroom remodels, basement finishing, renovations, and general contracting across Hartford and surrounding Connecticut communities.
+                {siteConfig.brand} delivers high-value remodeling, roofing, new construction, renovations, and general contracting across the Dallas–Fort Worth metroplex — backed by real restoration experience.
               </p>
 
               <div className="flex flex-wrap gap-4 mb-8">
                 <Button
                   size="lg"
                   onClick={openQuoteForm}
-                  className="text-base gap-2 px-8 py-6 text-lg rounded-xl shadow-[0_16px_40px_-12px_hsl(var(--primary)/0.55)]"
+                  className="text-base gap-2 px-8 py-6 text-lg rounded-xl hero-glow shadow-[0_16px_40px_-12px_hsl(var(--primary)/0.55)]"
                 >
-                  Request Free Estimate
+                  Schedule Free Estimate
                 </Button>
                 <a href={`tel:${siteConfig.primaryPhoneRaw}`}>
                   <Button
@@ -87,8 +89,9 @@ const HeroSection = () => {
                 transition={{ delay: 0.6, duration: 0.5 }}
                 className="glass-card rounded-2xl px-5 py-4 inline-flex items-center gap-3"
               >
+                <Users className="h-5 w-5 text-primary shrink-0" />
                 <span className="text-white/90 font-medium text-sm">
-                  {siteConfig.ownerName}, {siteConfig.ownerTitle}, personally handles in-person estimates.
+                  Dedicated sales reps handle estimates · {siteConfig.responseTime.toLowerCase()} · Virtual estimates in 48–72 hours
                 </span>
               </motion.div>
             </motion.div>
@@ -101,12 +104,12 @@ const HeroSection = () => {
             className="lg:col-span-5"
             id="quote-form"
           >
-            <div className="rounded-2xl shadow-2xl bg-card/95 border border-white/20 backdrop-blur-xl p-5 md:p-6">
+            <div className="rounded-2xl shadow-2xl bg-card/95 border border-white/20 backdrop-blur-xl p-5 md:p-6 hero-glow">
               <h3 className="font-heading text-2xl text-foreground mb-1 font-bold">Request a Free Estimate</h3>
               <p className="text-muted-foreground text-sm mb-4">
-                Free in-person estimates, typically completed by the next business day.
+                Free virtual estimates · Typically completed within 48–72 hours
               </p>
-              <GhlFormEmbed height={739} />
+              <GhlFormEmbed height={745} />
             </div>
           </motion.div>
         </div>

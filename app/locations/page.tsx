@@ -33,7 +33,7 @@ export default function LocationsPage() {
                 Service Locations
               </h1>
               <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
-                Cities and communities we serve within about {siteConfig.serviceRadiusMiles} miles across Hartford and surrounding Connecticut.
+                Cities and communities we serve within about {siteConfig.serviceRadiusMiles} miles across North Richland Hills and the DFW metroplex.
               </p>
             </motion.div>
           </div>
