@@ -59,8 +59,8 @@ export const siteConfig = {
     bookingWidgetIframeId: "wmnmUXZSdfQC24kWbmyG_1785002551543",
   },
   reputationHub: {
-    reviewWidgetScriptSrc: "",
-    reviewWidgetIframeSrc: "",
+    reviewWidgetScriptSrc: "https://reputationhub.site/reputation/assets/review-widget.js",
+    reviewWidgetIframeSrc: "https://reputationhub.site/reputation/widgets/review_widget/erZBpXyPvKIYKIPu2F3i",
   },
   googleBusinessProfile:
     "https://www.google.com/search?q=Coyote+Construction+Group&stick=H4sIAAAAAAAA_-NgU1I1qLAwM0k1tzQyNjNMNDQwskixMqgwNTNIMkg0tTRPTTRMMTA0X8Qq6ZxfmV-SquCcn1dcUlSaXJKZn6fgXpRfWgAAUbsh9EUAAAA&hl=en",
